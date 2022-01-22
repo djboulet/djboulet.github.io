@@ -83,7 +83,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'djboulet Documentation'
+project = u'djboulet'
 copyright = u'2022, Daniel Boulet'
 
 # The version info for the project you're documenting, acts as replacement for
