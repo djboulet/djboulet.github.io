@@ -4,6 +4,7 @@ gh-pages:
 	git checkout master doc
 	touch .nojekyll
 	git reset HEAD
+	make -C doc clean
 	make -C doc html
 	make -C doc latexpdf
 	mv -fv doc/build/html/* ./
