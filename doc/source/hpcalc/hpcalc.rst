@@ -1,6 +1,4 @@
 hpCalc
 ++++++
 
-Organic hella helvetica voluptate tumblr letterpress adaptogen bushwick selfies irony four loko sriracha subway tile. Laboris crucifix iPhone shoreditch veniam skateboard hot chicken bespoke in DIY stumptown chia sed affogato church-key. Godard microdosing pickled ea ut consectetur butcher listicle. Voluptate sartorial plaid subway tile aute, bespoke before they sold out kitsch tousled. Beard pug glossier man bun unicorn normcore letterpress.
-
-Sriracha skateboard aute esse proident iPhone. Selfies normcore succulents, veniam ethical listicle distillery. Seitan vexillologist ea palo santo cardigan. 8-bit pinterest unicorn hashtag nisi. Ullamco commodo aesthetic in activated charcoal. Taxidermy craft beer labore, esse retro roof party scenester hashtag. Affogato mustache squid jianbing fam adipisicing blog butcher.
+.. include:: hpcalc_text.rst

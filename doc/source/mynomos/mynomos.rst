@@ -1,6 +1,4 @@
 mynomos
 +++++++
 
-I'm baby kitsch laboris cliche kale chips adipisicing asymmetrical man bun heirloom. Meh shaman twee disrupt tofu scenester viral ut 90's synth franzen succulents waistcoat. Poke microdosing incididunt hot chicken in XOXO listicle waistcoat minim iceland leggings mustache butcher elit. Tacos put a bird on it aliquip next level, XOXO everyday carry etsy viral chambray mixtape prism do officia. Incididunt fanny pack next level copper mug chia. Meditation skateboard yuccie, fugiat godard affogato vice kinfolk helvetica schlitz dolore try-hard cray messenger bag.
-
-Try-hard stumptown hell of dreamcatcher mustache portland woke blue bottle quis tousled exercitation pour-over. Aliquip shaman anim, incididunt narwhal shoreditch fingerstache. Enamel pin jianbing next level, pariatur coloring book crucifix +1 aesthetic sed trust fund activated charcoal nostrud. Salvia ea gentrify ex. Plaid cupidatat lorem mumblecore. Enim umami next level prism readymade poutine four loko chambray gluten-free meh.
+.. include:: mynomos_text.rst

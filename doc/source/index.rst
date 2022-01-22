@@ -8,7 +8,6 @@ Welcome to djboulet project documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    mynomos/mynomos.rst
    hpcalc/hpcalc.rst
@@ -16,14 +15,6 @@ Welcome to djboulet project documentation!
    njaqueue/njaqueue.rst
    piplatemenu/piplatemenu.rst
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 License
 -------
