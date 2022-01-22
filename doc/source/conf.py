@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'djboulet projects documentation'
+project = 'djboulet'
 copyright = '2022, Daniel Boulet'
 author = 'Daniel Boulet'
 
