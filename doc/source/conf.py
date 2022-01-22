@@ -285,7 +285,7 @@ texinfo_documents = [
     (
         "index",
         "djbouletdoc",
-        u"djboulet Documentation",
+        u"djboulet",
         u"Daniel Boulet",
         "djbouletdoc",
         "One line description of project.",
