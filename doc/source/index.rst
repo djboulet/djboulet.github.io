@@ -14,6 +14,7 @@ Welcome to djboulet project documentation!
    hp48sx.rst
    njaqueue.rst
    piplatemenu.rst
+   bibliography.rst
 
 
 License
