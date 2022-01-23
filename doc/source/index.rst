@@ -9,12 +9,12 @@ Welcome to djboulet project documentation!
 .. toctree::
    :maxdepth: 2
 
-   mynomos.rst
-   hpcalc.rst
-   hp48sx.rst
-   njaqueue.rst
-   piplatemenu.rst
-   bibliography.rst
+   mynomos/mynomos.rst
+   hpcalc/hpcalc.rst
+   hp48sx/hp48sx.rst
+   njaqueue/njaqueue.rst
+   piplatemenu/piplatemenu.rst
+   bibliography/bibliography.rst
 
 
 License
