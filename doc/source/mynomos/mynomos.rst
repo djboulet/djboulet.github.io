@@ -1,6 +1,18 @@
 mynomos
 -------
 
-I'm baby kitsch laboris cliche kale chips adipisicing asymmetrical man bun heirloom. Meh shaman twee disrupt tofu scenester viral ut 90's synth franzen succulents waistcoat. Poke microdosing incididunt hot chicken in XOXO listicle waistcoat minim iceland leggings mustache butcher elit. Tacos put a bird on it aliquip next level, XOXO everyday carry etsy viral chambray mixtape prism do officia. Incididunt fanny pack next level copper mug chia. Meditation skateboard yuccie, fugiat godard affogato vice kinfolk helvetica schlitz dolore try-hard cray messenger bag.
+These nomographs were created with the `PyNomo <http://pynomo.org/wiki/index.php/Main_Page>`_ package.  These examples help illustrate the range of problems that can be solved with nomographs.  Some of the examples below are also included in the `PyNomo documentation <https://github.com/lefakkomies/pynomo-doc>`_.
 
-Try-hard stumptown hell of dreamcatcher mustache portland woke blue bottle quis tousled exercitation pour-over. Aliquip shaman anim, incididunt narwhal shoreditch fingerstache. Enamel pin jianbing next level, pariatur coloring book crucifix +1 aesthetic sed trust fund activated charcoal nostrud. Salvia ea gentrify ex. Plaid cupidatat lorem mumblecore. Enim umami next level prism readymade poutine four loko chambray gluten-free meh.
+.. include:: search_planner.rst
+.. include:: zscore.rst
+.. include:: vps_performance.rst
+.. include:: voltdiv.rst
+.. include:: vfcalculator.rst
+.. include:: true_vswr.rst
+.. include:: return_loss.rst
+.. include:: simple_annuity.rst
+.. include:: gasoline_prices.rst
+.. include:: bicycle_cadence.rst
+.. include:: air_core_coil.rst
+.. include:: romer.rst
+
