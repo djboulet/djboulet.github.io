@@ -1,2 +1,5 @@
 # djboulet.github.io
-documentation for github site
+
+Documentation for original works found here (https://djboulet.github.io) and here in pdf (https://github.com/djboulet/djboulet.github.io/blob/gh-pages/djbouletdoc.pdf).
+
+
