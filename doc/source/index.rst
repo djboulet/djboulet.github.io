@@ -10,10 +10,6 @@ Welcome to djboulet project documentation!
    :maxdepth: 2
 
    mynomos/mynomos.rst
-   hpcalc/hpcalc.rst
-   hp48sx/hp48sx.rst
-   njaqueue/njaqueue.rst
-   piplatemenu/piplatemenu.rst
    bibliography/bibliography.rst
 
 
