@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Simple Annuity &#8212; djboulet 0.0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          djboulet</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="mynomos.html">mynomos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography/bibliography.html">Bibliography</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Simple Annuity</a><ul>
+<li><a class="reference internal" href="#nomograph">Nomograph</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/mynomos/simple_annuity.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="simple-annuity">
+<h1>Simple Annuity<a class="headerlink" href="#simple-annuity" title="Permalink to this headline">¶</a></h1>
+<p>The following nomograph is related to the <a class="reference external" href="http://lefakkomies.github.io/pynomo-doc/examples/examples.html#example-amortized-loan-calculator">amortized loan calculator example in the PyNomo documentation</a>.  However, rather than calculate outflow of cash of a loan, the nomograph below calculates inflow of cash of a fixed annuity.</p>
+<section id="nomograph">
+<h2>Nomograph<a class="headerlink" href="#nomograph" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/simple_annuity.png" src="../_images/simple_annuity.png" />
+</section>
+<section id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  2</span><span class="sd">    simple_annuity.py</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="sd">    ---</span>
+<span class="linenos">  5</span><span class="sd">    You should have received a copy of the GNU General Public License</span>
+<span class="linenos">  6</span><span class="sd">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="linenos">  7</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 10</span>
+<span class="linenos"> 11</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos"> 12</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 13</span><span class="n">outputfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.pdf&#39;</span>
+<span class="linenos"> 14</span>
+<span class="linenos"> 15</span><span class="c1"># allows use of latex commands in PyX such as \frac{a}{b} and \par</span>
+<span class="linenos"> 16</span><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 17</span><span class="n">pyx</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">LatexEngine</span><span class="p">)</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="k">def</span> <span class="nf">annuity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+<span class="linenos"> 21</span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span>
+<span class="linenos"> 22</span>        <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">/</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mf">1200.0</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+<span class="linenos"> 23</span>        <span class="o">/</span>
+<span class="linenos"> 24</span>        <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mf">1200.0</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 25</span>    <span class="p">)</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span>
+<span class="linenos"> 28</span><span class="n">block_1_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 29</span>    <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="linenos"> 30</span>    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>
+<span class="linenos"> 31</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_5&#39;</span><span class="p">,</span>
+<span class="linenos"> 32</span>    <span class="s1">&#39;u_func&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">u</span><span class="o">*</span><span class="mf">12.0</span><span class="p">),</span>
+<span class="linenos"> 33</span>    <span class="s1">&#39;v_func&#39;</span><span class="p">:</span> <span class="n">annuity</span><span class="p">,</span>
+<span class="linenos"> 34</span>    <span class="s1">&#39;u_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">12.0</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">],</span>
+<span class="linenos"> 35</span>    <span class="s1">&#39;v_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+<span class="linenos"> 36</span>    <span class="s1">&#39;wd_tag&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+<span class="linenos"> 37</span>    <span class="s1">&#39;u_title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\large Years&#39;</span><span class="p">,</span>
+<span class="linenos"> 38</span>    <span class="s1">&#39;v_title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\large Yield = &#39;</span><span class="p">,</span>
+<span class="linenos"> 39</span>    <span class="s1">&#39;u_text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%3.0f</span><span class="s2">$ &quot;</span><span class="p">,</span>
+<span class="linenos"> 40</span>    <span class="s1">&#39;v_text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%3.0f</span><span class="s2">$ \</span><span class="si">%%</span><span class="s2"> &quot;</span><span class="p">,</span>
+<span class="linenos"> 41</span>    <span class="s1">&#39;vertical_guide_nr&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos"> 42</span>    <span class="s1">&#39;horizontal_guides&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 43</span>    <span class="s1">&#39;v_title_draw_center&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 44</span>    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">],[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span> <span class="c1">#[&#39;years&#39;,&#39;yield&#39;,&#39;ratio&#39;]</span>
+<span class="linenos"> 45</span><span class="p">}</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span><span class="c1"># this is non-obvious trick to find bottom edge coordinates of the grid in order</span>
+<span class="linenos"> 48</span><span class="c1"># to align it with N nomogram</span>
+<span class="linenos"> 49</span><span class="n">block1_dummy</span> <span class="o">=</span> <span class="n">Nomo_Block_Type_5</span><span class="p">(</span><span class="n">mirror_x</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos"> 50</span><span class="n">block1_dummy</span><span class="o">.</span><span class="n">define_block</span><span class="p">(</span><span class="n">block_1_params</span><span class="p">)</span>
+<span class="linenos"> 51</span><span class="n">block1_dummy</span><span class="o">.</span><span class="n">set_block</span><span class="p">()</span>
+<span class="linenos"> 52</span>
+<span class="linenos"> 53</span><span class="c1"># Let&#39;s define the N-nomogram</span>
+<span class="linenos"> 54</span><span class="n">N_params_3</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 55</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="n">block1_dummy</span><span class="o">.</span><span class="n">grid_box</span><span class="o">.</span><span class="n">params_wd</span><span class="p">[</span><span class="s1">&#39;u_min&#39;</span><span class="p">],</span>
+<span class="linenos"> 56</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="n">block1_dummy</span><span class="o">.</span><span class="n">grid_box</span><span class="o">.</span><span class="n">params_wd</span><span class="p">[</span><span class="s1">&#39;u_max&#39;</span><span class="p">],</span>
+<span class="linenos"> 57</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos"> 58</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="linenos"> 59</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+<span class="linenos"> 60</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
+<span class="linenos"> 61</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 62</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 63</span>    <span class="s1">&#39;reference&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos"> 64</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 65</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 66</span>    <span class="c1"># &#39;title_draw_center&#39;: True</span>
+<span class="linenos"> 67</span><span class="p">}</span>
+<span class="linenos"> 68</span><span class="n">N_params_2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 69</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos"> 70</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>
+<span class="linenos"> 71</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos"> 72</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\large Lump sum (in thousands)&#39;</span><span class="p">,</span>
+<span class="linenos"> 73</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+<span class="linenos"> 74</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos"> 75</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 76</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 77</span>    <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 78</span>    <span class="s1">&#39;grid_length_1&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos"> 79</span>    <span class="s1">&#39;grid_length_2&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span>
+<span class="linenos"> 80</span>    <span class="s1">&#39;grid_length_3&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+<span class="linenos"> 81</span>    <span class="s1">&#39;text_distance_1&#39;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span>
+<span class="linenos"> 82</span>    <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\$</span><span class="si">%3.0f</span><span class="s2">$ &quot;</span><span class="p">,</span>
+<span class="linenos"> 83</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 84</span><span class="p">}</span>
+<span class="linenos"> 85</span><span class="n">N_params_1</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 86</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mf">1000.0</span><span class="p">,</span>
+<span class="linenos"> 87</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mf">5000.0</span><span class="p">,</span>
+<span class="linenos"> 88</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">/</span><span class="mf">1000.0</span><span class="p">,</span>
+<span class="linenos"> 89</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\large Monthly withdrawal&#39;</span><span class="p">,</span>
+<span class="linenos"> 90</span>    <span class="s1">&#39;tag&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>
+<span class="linenos"> 91</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 92</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
+<span class="linenos"> 93</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 94</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 95</span>    <span class="s1">&#39;title_draw_center&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 96</span>    <span class="s1">&#39;grid_length_1&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos"> 97</span>    <span class="s1">&#39;grid_length_2&#39;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span>
+<span class="linenos"> 98</span>    <span class="s1">&#39;grid_length_3&#39;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+<span class="linenos"> 99</span>    <span class="s1">&#39;text_distance_1&#39;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span>
+<span class="linenos">100</span>    <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;$\$</span><span class="si">%3.0f</span><span class="s2">$ &quot;</span><span class="p">,</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="p">}</span>
+<span class="linenos">103</span>
+<span class="linenos">104</span><span class="n">block_2_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">105</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_2&#39;</span><span class="p">,</span>
+<span class="linenos">106</span>    <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="linenos">107</span>    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<span class="linenos">108</span>    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">N_params_1</span><span class="p">,</span>    <span class="c1"># withdrawal</span>
+<span class="linenos">109</span>    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">N_params_2</span><span class="p">,</span>    <span class="c1"># lump sum (in thousands)</span>
+<span class="linenos">110</span>    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">N_params_3</span><span class="p">,</span>    <span class="c1"># curve</span>
+<span class="linenos">111</span>    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">3198.25</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]]</span>
+<span class="linenos">112</span><span class="p">}</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">115</span>    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">outputfile</span><span class="p">,</span>
+<span class="linenos">116</span>    <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">2.54</span><span class="o">*</span><span class="mi">11</span><span class="p">,</span>
+<span class="linenos">117</span>    <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">2.54</span><span class="o">*</span><span class="mf">8.5</span><span class="p">,</span>
+<span class="linenos">118</span>    <span class="c1"># &#39;make_grid&#39;: True,</span>
+<span class="linenos">119</span>    <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_1_params</span><span class="p">,</span> <span class="n">block_2_params</span><span class="p">],</span>
+<span class="linenos">120</span>    <span class="s1">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+<span class="linenos">121</span>    <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\textbf{\huge Annuity Calculator}&#39;</span><span class="p">,</span>
+<span class="linenos">122</span>    <span class="s1">&#39;title_x&#39;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+<span class="linenos">123</span>    <span class="s1">&#39;title_y&#39;</span><span class="p">:</span> <span class="mi">29</span><span class="p">,</span>
+<span class="linenos">124</span>    <span class="s1">&#39;title_box_width&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="linenos">125</span>    <span class="s1">&#39;extra_texts&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">126</span>        <span class="p">{</span>
+<span class="linenos">127</span>            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\copyright Daniel Boulet (2018-2020)&#39;</span><span class="p">,</span>
+<span class="linenos">128</span>            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mf">16.5</span><span class="p">,</span>
+<span class="linenos">129</span>            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span>
+<span class="linenos">130</span>        <span class="p">},</span>
+<span class="linenos">131</span>        <span class="p">{</span>
+<span class="linenos">132</span>            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\noindent \textbf{How long will your money last?} </span><span class="se">\</span>
+<span class="linenos">133</span><span class="s1">                You can withdraw \$3000 per month from your \$500,000 </span><span class="se">\</span>
+<span class="linenos">134</span><span class="s1">                    initial investment for 30 years if your investments earn 6\</span><span class="si">% i</span><span class="s1">nterest.&#39;</span><span class="p">,</span>
+<span class="linenos">135</span>            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos">136</span>            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos">137</span>            <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="linenos">138</span>        <span class="p">},</span>
+<span class="linenos">139</span>        <span class="p">{</span>
+<span class="linenos">140</span>            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\noindent \textbf{How much savings do I need?} </span><span class="se">\</span>
+<span class="linenos">141</span><span class="s1">                You will need an initial investment of \$400,000 earning 8.5\% </span><span class="se">\</span>
+<span class="linenos">142</span><span class="s1">                    if you want to withdraw \$3200 per month for 25 years.&#39;</span><span class="p">,</span>
+<span class="linenos">143</span>            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+<span class="linenos">144</span>            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="linenos">145</span>            <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="linenos">146</span>        <span class="p">},</span>
+<span class="linenos">147</span>    <span class="p">],</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span><span class="p">}</span>
+<span class="linenos">150</span><span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022, Daniel Boulet.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

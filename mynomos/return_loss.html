@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Return Loss Calculator &#8212; djboulet 0.0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          djboulet</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="mynomos.html">mynomos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography/bibliography.html">Bibliography</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Return Loss Calculator</a><ul>
+<li><a class="reference internal" href="#nomograph">Nomograph</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/mynomos/return_loss.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="return-loss-calculator">
+<h1>Return Loss Calculator<a class="headerlink" href="#return-loss-calculator" title="Permalink to this headline">¶</a></h1>
+<p>The Return Loss Calculator performs the same calculations as the True VSWR calculator but presents the results differently.  The Return Loss Calculator allows for direct conversion of VSWR to Return Loss and vice versa.  Two cable types are alos offered on the right-hand portion of the nomograph.  The frequency is choosen by amateur band.  Missing from this nomograph is the ability to calcuate VSWR from forward and reflected power readings.</p>
+<section id="nomograph">
+<h2>Nomograph<a class="headerlink" href="#nomograph" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/return_loss.png" src="../_images/return_loss.png" />
+</section>
+<section id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  2</span><span class="sd">    return_loss.py</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="sd">    Nomogram to calculate VSWR at antenna given measured VSWR and feedline antenuation.</span>
+<span class="linenos">  5</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  6</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  7</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos">  8</span><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos">  9</span>
+<span class="linenos"> 10</span><span class="n">outputfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.pdf&#39;</span>
+<span class="linenos"> 11</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<span class="linenos"> 12</span><span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">LatexEngine</span><span class="p">)</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="n">Nomographer</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span><span class="n">minimum_return_loss</span> <span class="o">=</span> <span class="mf">6.0</span>
+<span class="linenos"> 17</span><span class="n">maximum_return_loss</span> <span class="o">=</span> <span class="mf">40.0</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="c1"># functions to convert return loss to VSWR and vice-versa</span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span>
+<span class="linenos"> 23</span><span class="k">def</span> <span class="nf">vswr2rl</span><span class="p">(</span><span class="n">vswr</span><span class="p">):</span>
+<span class="linenos"> 24</span>    <span class="k">return</span> <span class="o">-</span><span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">((</span><span class="n">vswr</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">vswr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="linenos"> 25</span>
+<span class="linenos"> 26</span>
+<span class="linenos"> 27</span><span class="k">def</span> <span class="nf">rl2vswr</span><span class="p">(</span><span class="n">rl</span><span class="p">):</span>
+<span class="linenos"> 28</span>    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">rl</span> <span class="o">/</span> <span class="mi">20</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">rl</span> <span class="o">/</span> <span class="mi">20</span><span class="p">))</span>
+<span class="linenos"> 29</span>
+<span class="linenos"> 30</span>
+<span class="linenos"> 31</span><span class="c1"># main block items</span>
+<span class="linenos"> 32</span>
+<span class="linenos"> 33</span><span class="n">measured_rl</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 34</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;measured&quot;</span><span class="p">,</span>
+<span class="linenos"> 35</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="n">minimum_return_loss</span><span class="p">,</span>
+<span class="linenos"> 36</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="n">maximum_return_loss</span><span class="p">,</span>
+<span class="linenos"> 37</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos"> 38</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos"> 39</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;Return loss (dB)&quot;</span><span class="p">,</span>
+<span class="linenos"> 40</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+<span class="linenos"> 41</span>    <span class="s2">&quot;title_draw_center&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 42</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="linenos"> 43</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 44</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos"> 45</span>    <span class="s2">&quot;extra_titles&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos"> 46</span>        <span class="p">{</span>
+<span class="linenos"> 47</span>            <span class="s2">&quot;dx&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span>
+<span class="linenos"> 48</span>            <span class="s2">&quot;dy&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos"> 49</span>            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\Large \textbf</span><span class="si">{Feedpoint}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="linenos"> 50</span>            <span class="c1"># &#39;width&#39;:5.0,</span>
+<span class="linenos"> 51</span>        <span class="p">}</span>
+<span class="linenos"> 52</span>    <span class="p">],</span>
+<span class="linenos"> 53</span><span class="p">}</span>
+<span class="linenos"> 54</span>
+<span class="linenos"> 55</span>
+<span class="linenos"> 56</span><span class="n">antenna_rl</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 57</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;antenna&quot;</span><span class="p">,</span>
+<span class="linenos"> 58</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+<span class="linenos"> 59</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+<span class="linenos"> 60</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos"> 61</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="o">-</span><span class="n">u</span><span class="p">,</span>
+<span class="linenos"> 62</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;Return loss (dB)&quot;</span><span class="p">,</span>
+<span class="linenos"> 63</span>    <span class="s2">&quot;title_draw_center&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 64</span>    <span class="s2">&quot;extra_titles&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos"> 65</span>        <span class="p">{</span>
+<span class="linenos"> 66</span>            <span class="s2">&quot;dx&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span>
+<span class="linenos"> 67</span>            <span class="s2">&quot;dy&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos"> 68</span>            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\Large \textbf</span><span class="si">{Antenna}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="linenos"> 69</span>            <span class="c1"># &#39;width&#39;:5.0,</span>
+<span class="linenos"> 70</span>        <span class="p">}</span>
+<span class="linenos"> 71</span>    <span class="p">],</span>
+<span class="linenos"> 72</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+<span class="linenos"> 73</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos"> 74</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos"> 75</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="linenos"> 76</span><span class="p">}</span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="n">cable_loss</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 79</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;cable_loss&quot;</span><span class="p">,</span>
+<span class="linenos"> 80</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos"> 81</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="linenos"> 82</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos"> 83</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos"> 84</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\Large \textbf{Attenuation (dB)}&quot;</span><span class="p">,</span>
+<span class="linenos"> 85</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">),</span>
+<span class="linenos"> 86</span>    <span class="c1"># &quot;title_draw_center&quot;: True,</span>
+<span class="linenos"> 87</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="linenos"> 88</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 89</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos"> 90</span>    <span class="c1"># &quot;extra_params&quot;: [</span>
+<span class="linenos"> 91</span>    <span class="c1">#     {</span>
+<span class="linenos"> 92</span>    <span class="c1">#         &quot;scale_type&quot;: &quot;manual arrow&quot;,</span>
+<span class="linenos"> 93</span>    <span class="c1"># 		&#39;tick_side&#39;:&#39;right&#39;,</span>
+<span class="linenos"> 94</span>    <span class="c1">#         &quot;manual_axis_data&quot;: {</span>
+<span class="linenos"> 95</span>    <span class="c1">#             8.5: &quot;100ft LMR195 70cm band&quot;,</span>
+<span class="linenos"> 96</span>    <span class="c1">#         },</span>
+<span class="linenos"> 97</span>    <span class="c1">#     }</span>
+<span class="linenos"> 98</span>    <span class="c1"># ],</span>
+<span class="linenos"> 99</span><span class="p">}</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="n">main_block</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">102</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_1&quot;</span><span class="p">,</span>
+<span class="linenos">103</span>    <span class="s2">&quot;f1_params&quot;</span><span class="p">:</span> <span class="n">measured_rl</span><span class="p">,</span>
+<span class="linenos">104</span>    <span class="s2">&quot;f3_params&quot;</span><span class="p">:</span> <span class="n">cable_loss</span><span class="p">,</span>
+<span class="linenos">105</span>    <span class="s2">&quot;f2_params&quot;</span><span class="p">:</span> <span class="n">antenna_rl</span><span class="p">,</span>
+<span class="linenos">106</span>    <span class="s2">&quot;isopleth_values&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
+<span class="linenos">107</span>    <span class="s2">&quot;mirror_y&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">108</span><span class="p">}</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span><span class="c1"># measured vswr items</span>
+<span class="linenos">111</span><span class="n">measured_vswr</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">112</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;measured&quot;</span><span class="p">,</span>
+<span class="linenos">113</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="n">rl2vswr</span><span class="p">(</span><span class="n">maximum_return_loss</span><span class="p">),</span>
+<span class="linenos">114</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="n">rl2vswr</span><span class="p">(</span><span class="n">minimum_return_loss</span><span class="p">),</span>
+<span class="linenos">115</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">vswr2rl</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+<span class="linenos">116</span>    <span class="s2">&quot;align_func&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">vswr2rl</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+<span class="linenos">117</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;VSWR&quot;</span><span class="p">,</span>
+<span class="linenos">118</span>    <span class="s2">&quot;title_draw_center&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">119</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="linenos">120</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+<span class="linenos">121</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">122</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos">123</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+<span class="linenos">124</span><span class="p">}</span>
+<span class="linenos">125</span>
+<span class="linenos">126</span><span class="n">measured_vswr_block</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">127</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_8&quot;</span><span class="p">,</span>
+<span class="linenos">128</span>    <span class="s2">&quot;f_params&quot;</span><span class="p">:</span> <span class="n">measured_vswr</span><span class="p">,</span>
+<span class="linenos">129</span>    <span class="s2">&quot;isopleth_values&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.3</span><span class="p">]],</span>
+<span class="linenos">130</span><span class="p">}</span>
+<span class="linenos">131</span>
+<span class="linenos">132</span><span class="c1"># antenna vswr items</span>
+<span class="linenos">133</span>
+<span class="linenos">134</span><span class="n">antenna_vswr</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">135</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;antenna&quot;</span><span class="p">,</span>
+<span class="linenos">136</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="n">rl2vswr</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
+<span class="linenos">137</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="n">rl2vswr</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<span class="linenos">138</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">vswr2rl</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+<span class="linenos">139</span>    <span class="s2">&quot;align_func&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">vswr2rl</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+<span class="linenos">140</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;VSWR&quot;</span><span class="p">,</span>
+<span class="linenos">141</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+<span class="linenos">142</span>    <span class="s2">&quot;title_draw_center&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">143</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+<span class="linenos">144</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">145</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;linear smart&quot;</span><span class="p">,</span>
+<span class="linenos">146</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+<span class="linenos">147</span><span class="p">}</span>
+<span class="linenos">148</span>
+<span class="linenos">149</span><span class="n">antenna_vswr_block</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">150</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_8&quot;</span><span class="p">,</span>
+<span class="linenos">151</span>    <span class="s2">&quot;f_params&quot;</span><span class="p">:</span> <span class="n">antenna_vswr</span><span class="p">,</span>
+<span class="linenos">152</span>    <span class="s2">&quot;isopleth_values&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;x&quot;</span><span class="p">]],</span>
+<span class="linenos">153</span><span class="p">}</span>
+<span class="linenos">154</span>
+<span class="linenos">155</span><span class="c1"># cable loss items (type 2 block)</span>
+<span class="linenos">156</span><span class="n">cable_loss_arrows</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">157</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;cable_loss&quot;</span><span class="p">,</span>
+<span class="linenos">158</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+<span class="linenos">159</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="linenos">160</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">161</span>    <span class="c1"># &quot;title&quot;: r&quot;cable loss&quot;,</span>
+<span class="linenos">162</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">163</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos">164</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;manual&quot;</span><span class="p">,</span>
+<span class="linenos">165</span><span class="p">}</span>
+<span class="linenos">166</span>
+<span class="linenos">167</span><span class="n">loss_per_unit_length_lmr195</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">168</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;cable_type&quot;</span><span class="p">,</span>
+<span class="linenos">169</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">170</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">,</span>
+<span class="linenos">171</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">172</span>    <span class="s2">&quot;align_function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">173</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;LMR195&quot;</span><span class="p">,</span>
+<span class="linenos">174</span>    <span class="s2">&quot;title_rotate_text&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">175</span>    <span class="s2">&quot;title_x_shift&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span>
+<span class="linenos">176</span>    <span class="s2">&quot;title_y_shift&quot;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span>
+<span class="linenos">177</span>    <span class="c1"># &quot;title_draw_center&quot;: True,</span>
+<span class="linenos">178</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">179</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos">180</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="linenos">181</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;manual arrow&quot;</span><span class="p">,</span>
+<span class="linenos">182</span>    <span class="s2">&quot;manual_axis_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos">183</span>        <span class="mf">3.2</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;40m&quot;</span><span class="p">,</span>
+<span class="linenos">184</span>        <span class="mf">4.5</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;20m&quot;</span><span class="p">,</span>
+<span class="linenos">185</span>        <span class="mf">5.5</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;15m&quot;</span><span class="p">,</span>
+<span class="linenos">186</span>        <span class="mf">6.4</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+<span class="linenos">187</span>        <span class="mf">8.7</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;6m&quot;</span><span class="p">,</span>
+<span class="linenos">188</span>        <span class="mf">14.5</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;2m&quot;</span><span class="p">,</span>
+<span class="linenos">189</span>        <span class="mf">25.2</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;70cm&quot;</span><span class="p">,</span>
+<span class="linenos">190</span>    <span class="p">},</span>
+<span class="linenos">191</span>    <span class="c1"># &quot;title_relative_offset&quot;: (0, 0),</span>
+<span class="linenos">192</span><span class="p">}</span>
+<span class="linenos">193</span>
+<span class="linenos">194</span><span class="n">loss_per_unit_length_lmr400</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">195</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;cable_type&quot;</span><span class="p">,</span>
+<span class="linenos">196</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+<span class="linenos">197</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">30.0</span><span class="p">,</span>
+<span class="linenos">198</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">199</span>    <span class="s2">&quot;align_function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">200</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;LMR400&quot;</span><span class="p">,</span>
+<span class="linenos">201</span>    <span class="s2">&quot;title_rotate_text&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">202</span>    <span class="s2">&quot;title_x_shift&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+<span class="linenos">203</span>    <span class="s2">&quot;title_y_shift&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span>
+<span class="linenos">204</span>    <span class="c1"># &quot;title_draw_center&quot;: True,</span>
+<span class="linenos">205</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">206</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="linenos">207</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;right&quot;</span><span class="p">,</span>
+<span class="linenos">208</span>    <span class="s2">&quot;scale_type&quot;</span><span class="p">:</span> <span class="s2">&quot;manual arrow&quot;</span><span class="p">,</span>
+<span class="linenos">209</span>    <span class="s2">&quot;manual_axis_data&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos">210</span>        <span class="mf">1.1</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;40m&quot;</span><span class="p">,</span>
+<span class="linenos">211</span>        <span class="c1"># 1.5: r&quot;20m&quot;,</span>
+<span class="linenos">212</span>        <span class="c1"># 1.9: r&quot;15m&quot;,</span>
+<span class="linenos">213</span>        <span class="mf">2.2</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;10m&quot;</span><span class="p">,</span>
+<span class="linenos">214</span>        <span class="mf">3.0</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;6m&quot;</span><span class="p">,</span>
+<span class="linenos">215</span>        <span class="mf">5.0</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;2m&quot;</span><span class="p">,</span>
+<span class="linenos">216</span>        <span class="mf">8.9</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;70cm&quot;</span><span class="p">,</span>
+<span class="linenos">217</span>    <span class="p">},</span>
+<span class="linenos">218</span>    <span class="c1"># &quot;title_relative_offset&quot;: (0, -2.5),</span>
+<span class="linenos">219</span><span class="p">}</span>
+<span class="linenos">220</span>
+<span class="linenos">221</span><span class="n">length_meters</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">222</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;clength&quot;</span><span class="p">,</span>
+<span class="linenos">223</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="linenos">224</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos">225</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="linenos">226</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;Meters&quot;</span><span class="p">,</span>
+<span class="linenos">227</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">228</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos">229</span>    <span class="s2">&quot;title_draw_center&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">230</span>    <span class="s2">&quot;tick_side&quot;</span><span class="p">:</span> <span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="linenos">231</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span>
+<span class="linenos">232</span>    <span class="s2">&quot;extra_titles&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">233</span>        <span class="p">{</span>
+<span class="linenos">234</span>            <span class="s2">&quot;dx&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span>
+<span class="linenos">235</span>            <span class="s2">&quot;dy&quot;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+<span class="linenos">236</span>            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\Large \textbf{Cable Length}&quot;</span><span class="p">,</span>
+<span class="linenos">237</span>        <span class="p">}</span>
+<span class="linenos">238</span>    <span class="p">],</span>
+<span class="linenos">239</span><span class="p">}</span>
+<span class="linenos">240</span>
+<span class="linenos">241</span><span class="n">length_feet</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">242</span>    <span class="s2">&quot;tag&quot;</span><span class="p">:</span> <span class="s2">&quot;clength&quot;</span><span class="p">,</span>
+<span class="linenos">243</span>    <span class="s2">&quot;u_min&quot;</span><span class="p">:</span> <span class="mf">10.0</span> <span class="o">/</span> <span class="mf">0.3048</span><span class="p">,</span>
+<span class="linenos">244</span>    <span class="s2">&quot;u_max&quot;</span><span class="p">:</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="mf">0.3048</span><span class="p">,</span>
+<span class="linenos">245</span>    <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+<span class="linenos">246</span>    <span class="s2">&quot;align_func&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span> <span class="o">*</span> <span class="mf">0.3048</span><span class="p">,</span>
+<span class="linenos">247</span>    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;Feet&quot;</span><span class="p">,</span>
+<span class="linenos">248</span>    <span class="s2">&quot;title_draw_center&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos">249</span>    <span class="s2">&quot;tick_levels&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos">250</span>    <span class="s2">&quot;tick_text_levels&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos">251</span>    <span class="s2">&quot;title_relative_offset&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">),</span>
+<span class="linenos">252</span><span class="p">}</span>
+<span class="linenos">253</span><span class="n">cable_parameters</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">254</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_2&quot;</span><span class="p">,</span>
+<span class="linenos">255</span>    <span class="c1"># &quot;width&quot;: 10.0,</span>
+<span class="linenos">256</span>    <span class="c1"># &quot;height&quot;: 10.0,</span>
+<span class="linenos">257</span>    <span class="s2">&quot;f1_params&quot;</span><span class="p">:</span> <span class="n">cable_loss_arrows</span><span class="p">,</span>
+<span class="linenos">258</span>    <span class="s2">&quot;f2_params&quot;</span><span class="p">:</span> <span class="n">loss_per_unit_length_lmr195</span><span class="p">,</span>
+<span class="linenos">259</span>    <span class="s2">&quot;f3_params&quot;</span><span class="p">:</span> <span class="n">length_meters</span><span class="p">,</span>
+<span class="linenos">260</span>    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">6.4</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]],</span>
+<span class="linenos">261</span><span class="p">}</span>
+<span class="linenos">262</span>
+<span class="linenos">263</span><span class="n">cable_parameters2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">264</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_8&quot;</span><span class="p">,</span>
+<span class="linenos">265</span>    <span class="s2">&quot;f_params&quot;</span><span class="p">:</span> <span class="n">loss_per_unit_length_lmr400</span><span class="p">,</span>
+<span class="linenos">266</span>	<span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="s1">&#39;x&#39;</span><span class="p">]],</span>
+<span class="linenos">267</span><span class="p">}</span>
+<span class="linenos">268</span>
+<span class="linenos">269</span><span class="n">cable_parameters3</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">270</span>    <span class="s2">&quot;block_type&quot;</span><span class="p">:</span> <span class="s2">&quot;type_8&quot;</span><span class="p">,</span>
+<span class="linenos">271</span>    <span class="s2">&quot;f_params&quot;</span><span class="p">:</span> <span class="n">length_feet</span><span class="p">,</span>
+<span class="linenos">272</span>	<span class="s1">&#39;isopleth_values&#39;</span><span class="p">:[[</span><span class="mi">150</span><span class="p">]],</span>
+<span class="linenos">273</span><span class="p">}</span>
+<span class="linenos">274</span>
+<span class="linenos">275</span>
+<span class="linenos">276</span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">277</span>    <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">outputfile</span><span class="p">,</span>
+<span class="linenos">278</span>    <span class="s2">&quot;paper_height&quot;</span><span class="p">:</span> <span class="mf">8.0</span> <span class="o">*</span> <span class="mf">2.54</span><span class="p">,</span>
+<span class="linenos">279</span>    <span class="s2">&quot;paper_width&quot;</span><span class="p">:</span> <span class="mf">10.5</span> <span class="o">*</span> <span class="mf">2.54</span><span class="p">,</span>
+<span class="linenos">280</span>    <span class="c1"># &quot;block_params&quot;: [main_block],</span>
+<span class="linenos">281</span>    <span class="s2">&quot;block_params&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">282</span>        <span class="n">main_block</span><span class="p">,</span>
+<span class="linenos">283</span>        <span class="n">measured_vswr_block</span><span class="p">,</span>
+<span class="linenos">284</span>        <span class="n">antenna_vswr_block</span><span class="p">,</span>
+<span class="linenos">285</span>        <span class="n">cable_parameters</span><span class="p">,</span>
+<span class="linenos">286</span>        <span class="n">cable_parameters2</span><span class="p">,</span>
+<span class="linenos">287</span>        <span class="n">cable_parameters3</span><span class="p">,</span>
+<span class="linenos">288</span>    <span class="p">],</span>
+<span class="linenos">289</span>    <span class="c1"># &quot;block_params&quot;: [main_block,measured_vswr_block],</span>
+<span class="linenos">290</span>    <span class="s2">&quot;transformations&quot;</span><span class="p">:</span> <span class="p">[(</span><span class="s2">&quot;rotate&quot;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;scale paper&quot;</span><span class="p">,)],</span>
+<span class="linenos">291</span>    <span class="s2">&quot;title_str&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;\huge \textbf{VSWR reduction due to cable attenuation}&quot;</span><span class="p">,</span>
+<span class="linenos">292</span>    <span class="s2">&quot;title_x&quot;</span><span class="p">:</span> <span class="mf">18.0</span><span class="p">,</span>
+<span class="linenos">293</span>    <span class="s2">&quot;title_y&quot;</span><span class="p">:</span> <span class="mf">20.5</span><span class="p">,</span>
+<span class="linenos">294</span>    <span class="s2">&quot;extra_texts&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">295</span>        <span class="p">{</span>
+<span class="linenos">296</span>            <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span>
+<span class="linenos">297</span>            <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">19.0</span><span class="p">,</span>
+<span class="linenos">298</span>            <span class="s2">&quot;text&quot;</span><span class="p">:</span><span class="sa">r</span><span class="s2">&quot;\noindent \textbf{How to use:} </span><span class="se">\</span>
+<span class="linenos">299</span><span class="s2">				\par \medskip \noindent Draw a straight line from the \textit{Cable Length} axis through the appropriate cable and frequency band  to the \textit</span><span class="si">{Attenuation}</span><span class="s2"> axis. Draw a second line from the measured VSWR or return loss value on the \textit</span><span class="si">{Feedpoint}</span><span class="s2"> axis to the intersection of the first line and the \textit</span><span class="si">{Attenuation}</span><span class="s2"> axis.  Read the actual antenna VSWR or return loss on the \textit</span><span class="si">{Antenna}</span><span class="s2"> axis. </span><span class="se">\</span>
+<span class="linenos">300</span><span class="s2">				\par \medskip \noindent  \copyright Daniel Boulet (2021)&quot;</span><span class="p">,</span>
+<span class="linenos">301</span>            <span class="s2">&quot;width&quot;</span><span class="p">:</span> <span class="mf">9.0</span><span class="p">,</span>
+<span class="linenos">302</span>        <span class="p">},</span>
+<span class="linenos">303</span>    <span class="p">],</span>
+<span class="linenos">304</span>    <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+<span class="linenos">305</span>    <span class="c1"># &quot;make_grid&quot;: True,</span>
+<span class="linenos">306</span><span class="p">}</span>
+<span class="linenos">307</span>
+<span class="linenos">308</span><span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022, Daniel Boulet.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

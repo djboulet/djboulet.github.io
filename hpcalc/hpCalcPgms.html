@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>HP35s / HP12c Programs &#8212; djboulet 0.0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          djboulet</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../mynomos/mynomos.html">mynomos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography/bibliography.html">Bibliography</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">HP35s / HP12c Programs</a><ul>
+<li><a class="reference internal" href="#revision-history">Revision History</a></li>
+<li><a class="reference internal" href="#hp35s">HP35s</a><ul>
+<li><a class="reference internal" href="#modexp">modexp</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#program-listing">Program Listing</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#atan2">atan2</a><ul>
+<li><a class="reference internal" href="#description-1">Description</a><ul>
+<li><a class="reference internal" href="#usage-1">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#program-listing-1">Program Listing</a></li>
+<li><a class="reference internal" href="#example-1">Example</a></li>
+<li><a class="reference internal" href="#comments-1">Comments</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#avswr">avswr</a><ul>
+<li><a class="reference internal" href="#description-2">Description</a><ul>
+<li><a class="reference internal" href="#usage-2">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#program-listing-2">Program Listing</a></li>
+<li><a class="reference internal" href="#example-2">Example</a></li>
+<li><a class="reference internal" href="#how-this-program-works">How this program works</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hp12c">HP12c</a><ul>
+<li><a class="reference internal" href="#canfin">canfin</a><ul>
+<li><a class="reference internal" href="#description-3">Description</a><ul>
+<li><a class="reference internal" href="#usage-3">Usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#program-listing-3">Program Listing</a></li>
+<li><a class="reference internal" href="#example-3">Example</a></li>
+<li><a class="reference internal" href="#comments-2">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/hpcalc/hpCalcPgms.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="hp35s-hp12c-programs">
+<h1>HP35s / HP12c Programs<a class="headerlink" href="#hp35s-hp12c-programs" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Daniel J Boulet</p>
+</dd>
+</dl>
+<section id="revision-history">
+<h2>Revision History<a class="headerlink" href="#revision-history" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Revision Date</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>May 25, 2016</p></td>
+<td><p>Revised <em>Modular Exponentiation
+ program by using DSE function
+instead of direct variable
+count.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>June 26, 2021</p></td>
+<td><p>Renamed <em>Modular Exponentiation
+ to modexp.</em></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Added blank pages for double
+sided printing.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Added program to calculate actual
+VSWR based on measured VSWR and
+cable loss.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hp35s">
+<h2>HP35s<a class="headerlink" href="#hp35s" title="Permalink to this headline">¶</a></h2>
+<section id="modexp">
+<h3>modexp<a class="headerlink" href="#modexp" title="Permalink to this headline">¶</a></h3>
+<section id="description">
+<h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
+<p>This program calculates the modulus of a number raised to a large power.
+The formula looks like this:</p>
+<div class="math notranslate nohighlight">
+\[{modexp} = n^p\ \bmod m\]</div>
+<section id="usage">
+<h5>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">A001</span> <span class="pre">n</span> <span class="pre">R/S</span> <span class="pre">p</span> <span class="pre">R/S</span> <span class="pre">m</span> <span class="pre">R/S</span></code></p>
+</section>
+</section>
+<section id="program-listing">
+<h4>Program Listing<a class="headerlink" href="#program-listing" title="Permalink to this headline">¶</a></h4>
+<p>R1.25cm L2.5cm L10.0cm</p>
+<div class="line-block">
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">LBL</span> <span class="pre">A</span></code> &amp;start of program</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">N</span></code> &amp;store number to the raised to the power P</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STOP</span></code> &amp;wait for user R/S</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">P</span></code> &amp;store exponent</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STOP</span></code> &amp;wait for user R/S</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">M</span></code> &amp;store modulus</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">1</span></code> &amp;initialize product …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">R</span></code> &amp;… and save in memory</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">N</span></code> &amp;recall base …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">R</span></code> &amp;recall product …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp;… and multiply the two</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">M</span></code> &amp;recall the modulus …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RMDR</span></code> &amp;… and apply it</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">R</span></code> &amp;save the new product</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">DSE</span> <span class="pre">P</span></code> &amp;decrement exponent …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">A009</span></code> &amp;… and loop back if not finished.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">R</span></code> &amp;pull the product from memory</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RTN</span></code> &amp;we are done!</div>
+</div>
+</section>
+<section id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>In the following example we calculate <span class="math notranslate nohighlight">\(\mathbf{5^{101} \bmod 31}\)</span>
+using the following steps: <code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">A001</span></code> <code class="docutils literal notranslate"><span class="pre">0.00000</span></code> <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">R/S</span></code>
+<code class="docutils literal notranslate"><span class="pre">5.00000</span></code> <code class="docutils literal notranslate"><span class="pre">101</span> <span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">101.00000</span></code> <code class="docutils literal notranslate"><span class="pre">31</span> <span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">25.00000</span></code></p>
+</section>
+<section id="comments">
+<h4>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h4>
+<p>The HP35s is not known for it’s lightning speed. The above example will
+take about 12 seconds to run.</p>
+</section>
+</section>
+<section id="atan2">
+<h3>atan2<a class="headerlink" href="#atan2" title="Permalink to this headline">¶</a></h3>
+<section id="description-1">
+<span id="id1"></span><h4>Description<a class="headerlink" href="#description-1" title="Permalink to this headline">¶</a></h4>
+<p>This program calculates <span class="math notranslate nohighlight">\({\rm atan2}(\frac{y}{x})\)</span>. Result is in
+the range <span class="math notranslate nohighlight">\(-180\)</span> to <span class="math notranslate nohighlight">\(+180\)</span>.</p>
+<section id="usage-1">
+<span id="id2"></span><h5>Usage<a class="headerlink" href="#usage-1" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">Z001</span> <span class="pre">x</span> <span class="pre">R/S</span> <span class="pre">y</span> <span class="pre">R/S</span></code></p>
+</section>
+</section>
+<section id="program-listing-1">
+<span id="id3"></span><h4>Program Listing<a class="headerlink" href="#program-listing-1" title="Permalink to this headline">¶</a></h4>
+<p>R1.25cm L2.5cm L10.0cm</p>
+<div class="line-block">
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">LBL</span> <span class="pre">Z</span></code> &amp;Start of program.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">X</span></code> &amp;Store <span class="math notranslate nohighlight">\(x\)</span> in <code class="docutils literal notranslate"><span class="pre">X</span></code>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STOP</span></code> &amp;Wait for user R/S.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">Y</span></code> &amp;Store <span class="math notranslate nohighlight">\(y\)</span> in <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">Y</span></code> &amp;Recall <code class="docutils literal notranslate"><span class="pre">Y</span></code>. Note: this is also the entry point for
+subroutine.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">X</span></code> &amp;Recall <code class="docutils literal notranslate"><span class="pre">X</span></code>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp;Take ratio of rise over run (<span class="math notranslate nohighlight">\(\frac{y}{x}\)</span>).</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">ATAN</span></code> &amp;Calculate <span class="math notranslate nohighlight">\(\arctan(\frac{y}{x})\)</span>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">R</span></code> &amp;Save as an interim result in <code class="docutils literal notranslate"><span class="pre">R</span></code>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">X</span></code> &amp;Test sign of <code class="docutils literal notranslate"><span class="pre">X</span></code>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0?</span></code> &amp;Is <span class="math notranslate nohighlight">\(x\)</span> positive?</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">Z027</span></code> &amp;If so then go to end of program.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">Y</span></code> &amp;Recall <code class="docutils literal notranslate"><span class="pre">Y</span></code> …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">SGN</span></code> &amp;Calculate its sign …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">45</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp;then multiply it by 45.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">X</span></code> &amp;Get <code class="docutils literal notranslate"><span class="pre">X</span></code> value.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">0?</span></code> &amp;Is it equal to zero?</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RTN</span></code> &amp;If so then return the value of the stack (<span class="math notranslate nohighlight">\(\pm\)</span>45)</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">180</span></code> &amp;Setup offset depending on sign of <span class="math notranslate nohighlight">\(y\)</span>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">-R</span></code> &amp;Initially subtract 180— we do this at a minimum.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">Y</span></code> &amp;Get <code class="docutils literal notranslate"><span class="pre">Y</span></code> value.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">0?</span></code> &amp;Is it negative?</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">Z027</span></code> &amp;If yes, then we are done since we already subtracted
+180.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">360</span></code> &amp;If <span class="math notranslate nohighlight">\(y\)</span> is positive then we have to add 360…</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">+R</span></code> &amp;… for a total addition of 180.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">R</span></code> &amp;Get the angle.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RTN</span></code> &amp;Return to calling function.</div>
+</div>
+</section>
+<section id="example-1">
+<span id="id4"></span><h4>Example<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h4>
+<p>In the following example we calculate
+<span class="math notranslate nohighlight">\({\rm atan2}(\frac{+1.5}{-1.0})\)</span> using the following steps:
+<code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">Z001</span></code> <code class="docutils literal notranslate"><span class="pre">0.00000</span></code> <code class="docutils literal notranslate"><span class="pre">1.5</span></code> <code class="docutils literal notranslate"><span class="pre">1.5</span></code> <code class="docutils literal notranslate"><span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">1.50000</span></code> <code class="docutils literal notranslate"><span class="pre">-1.0</span></code>
+<code class="docutils literal notranslate"><span class="pre">-1.0</span></code> <code class="docutils literal notranslate"><span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">-33.69007</span></code></p>
+</section>
+<section id="comments-1">
+<span id="id5"></span><h4>Comments<a class="headerlink" href="#comments-1" title="Permalink to this headline">¶</a></h4>
+<p>Users have to be careful about a couple of things:</p>
+<ol class="arabic simple">
+<li><p>Angles are calculated in <em>degrees. Confirm calculator setting before
+using this function.</em></p></li>
+<li><p>User is responsible for ensuring that <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are
+<strong>never both zero.</strong></p></li>
+</ol>
+</section>
+</section>
+<section id="avswr">
+<h3>avswr<a class="headerlink" href="#avswr" title="Permalink to this headline">¶</a></h3>
+<section id="description-2">
+<span id="id6"></span><h4>Description<a class="headerlink" href="#description-2" title="Permalink to this headline">¶</a></h4>
+<p>This program calculates actual VSWR given measured VSWR and cable loss
+to antenna.</p>
+<section id="usage-2">
+<span id="id7"></span><h5>Usage<a class="headerlink" href="#usage-2" title="Permalink to this headline">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">V001</span> <span class="pre">M</span> <span class="pre">R/S</span> <span class="pre">L</span> <span class="pre">R/S</span></code></p>
+</section>
+</section>
+<section id="program-listing-2">
+<span id="id8"></span><h4>Program Listing<a class="headerlink" href="#program-listing-2" title="Permalink to this headline">¶</a></h4>
+<p>R1.25cm L2.5cm L10.0cm</p>
+<div class="line-block">
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">LBL</span> <span class="pre">V</span></code> &amp;Start of program.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">M</span></code> &amp;Save measured VSWR in <code class="docutils literal notranslate"><span class="pre">M</span></code>.</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STOP</span></code> &amp;Pause for entry of cable loss (in dB)</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">+/-</span></code> &amp;Negate cable loss …</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">10</span></code> &amp;…and convert to ratio</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">10^{x}</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">L</span></code> &amp;Save as cable loss</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">M</span></code> &amp;Get measured VSWR and calculate reflected power ratio</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">1</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">-</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">M</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">1</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">+</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">x^{2}</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">R</span></code> &amp;Save reflected power ratio</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">L</span></code> &amp;Calculate actual VSWR at antenna</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\sqrt{x}</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">R</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">L</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\sqrt{x}</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">+</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">L</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\sqrt{x}</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">R</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">L</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\sqrt{x}</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">-</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp;</div>
+<div class="line">&amp; <code class="docutils literal notranslate"><span class="pre">RTN</span></code> &amp;Return to calling function.</div>
+</div>
+</section>
+<section id="example-2">
+<span id="id9"></span><h4>Example<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
+<p>Calculate the actual VSWR of an antenna where the measured VSWR is
+1:1.13 and cable loss is 4.7dB: <code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">V001</span></code> <code class="docutils literal notranslate"><span class="pre">0.00000</span></code> <code class="docutils literal notranslate"><span class="pre">1.13</span></code> <a href="#id10"><span class="problematic" id="id11">``</span></a>``
+<code class="docutils literal notranslate"><span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">1.13000</span></code> <code class="docutils literal notranslate"><span class="pre">4.7</span></code> <a href="#id12"><span class="problematic" id="id13">``</span></a>`` <code class="docutils literal notranslate"><span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">1.4394</span></code></p>
+</section>
+<section id="how-this-program-works">
+<h4>How this program works<a class="headerlink" href="#how-this-program-works" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(VSWR\)</span> is the ratio of the sum and difference of forward and
+reflected voltages:</p>
+<div class="math notranslate nohighlight">
+\[VSWR = {{V_f+V_r}\over{V_f-V_r}}\]</div>
+<p>Since power is proportional to the square of the voltage, (1) can be
+expressed in terms of power</p>
+<div class="math notranslate nohighlight">
+\[VSWR = {{\sqrt{P_f}+\sqrt{P_r}}\over{\sqrt{P_f}-\sqrt{P_r}}}\]</div>
+<p>By setting <span class="math notranslate nohighlight">\(P_f\)</span> equal to <span class="math notranslate nohighlight">\(1\)</span> and rearranging (2) we can
+solve for <span class="math notranslate nohighlight">\(P_r\)</span></p>
+<div class="math notranslate nohighlight">
+\[P_r = \left({{VSWR-1}\over{VSWR+1}}\right)^{2}\]</div>
+<p>Cable loss is normally expressed in decibels but for our purposes we can
+simply express it as a factor of less than 1 where <span class="math notranslate nohighlight">\(P_a\)</span> is power
+at the antenna and <span class="math notranslate nohighlight">\(P_t\)</span> is power from the transmitter.</p>
+<div class="math notranslate nohighlight">
+\[L = {{P_a }\over{ P_t}}\]</div>
+<p>Taking into account the cable loss and measured forward and reverse
+power we can calculate VSWR at the antenna</p>
+<div class="math notranslate nohighlight">
+\[VSWR = {{\sqrt{P_f \times L}+\sqrt{P_r \div L}}\over{\sqrt{P_f \times L}-\sqrt{P_r \div L}}}\]</div>
+<p>Again we set <span class="math notranslate nohighlight">\(P_f\)</span> to <span class="math notranslate nohighlight">\(1\)</span> so a simplied version of (5)
+becomes the actual VSWR at the antenna</p>
+<div class="math notranslate nohighlight">
+\[VSWR = {{\sqrt{L}+\sqrt{P_r \div L}}\over{\sqrt{L}-\sqrt{P_r \div L}}}\]</div>
+</section>
+</section>
+</section>
+<section id="hp12c">
+<h2>HP12c<a class="headerlink" href="#hp12c" title="Permalink to this headline">¶</a></h2>
+<section id="canfin">
+<h3>canfin<a class="headerlink" href="#canfin" title="Permalink to this headline">¶</a></h3>
+<section id="description-3">
+<span id="id14"></span><h4>Description<a class="headerlink" href="#description-3" title="Permalink to this headline">¶</a></h4>
+<p>This package provides four different functions: - calculate best average
+consecutive earnings given the final salary and the average percentage
+increase over n years - calculate the real rate of return based on
+investment return and a given rate of inflation - calculate the
+effective interest rate for a Canadian mortage where compounding occurs
+at a different interval than the mortgage payments - calculate the
+compound percentage increase or decrease of value over time in years</p>
+<section id="usage-3">
+<span id="id15"></span><h5>Usage<a class="headerlink" href="#usage-3" title="Permalink to this headline">¶</a></h5>
+<p>Best average earnings: enter final salary in <code class="docutils literal notranslate"><span class="pre">FV</span></code>, annual percentage
+increase expresses as a multipler (e.g. 2 percent is entered as 1.02)
+and averaging period in <code class="docutils literal notranslate"><span class="pre">n</span></code>. <a href="#id16"><span class="problematic" id="id17">``</span></a><a href="#id18"><span class="problematic" id="id19">``</span></a></p>
+</section>
+</section>
+<section id="program-listing-3">
+<span id="id20"></span><h4>Program Listing<a class="headerlink" href="#program-listing-3" title="Permalink to this headline">¶</a></h4>
+<div class="line-block">
+<div class="line">R2.0cm R3.0cm L5.0cm <code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">i</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4512</span></code> &amp;Best average consecutive
+earnings launch point</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">n</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4511</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y^x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,21</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">i</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4512</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">n</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4511</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">i</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4512</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">n</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4511</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y^x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,21</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,10</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1/x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,22</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">FV</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4515</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">R/S</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,31</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">001</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,43,33,001</span></code> &amp;jump to a whole bunch more text …</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,10</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1/x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,22</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\gtrless</span> <span class="pre">y</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,34</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,10</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">R/S</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,31</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">023</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,43,33,023</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1/x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,22</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\gtrless</span> <span class="pre">y</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,34</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">2</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,10</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\gtrless</span> <span class="pre">y</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,34</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y^x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,21</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">R/S</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,31</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">046</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,43,33,046</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">FV</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4515</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">PV</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4513</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,10</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">n</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4511</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1/x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,22</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y^x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,21</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">R/S</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,31</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">064</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,43,33,064</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ENTER</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,36</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">n</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,4511</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">y^x</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,21</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">CHS</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,16</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\gtrless</span> <span class="pre">y</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,34</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">CHS</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,16</span></code> &amp;test comment</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">1</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">n</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,11</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">R/S</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,31</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">078</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,43,33,078</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">STO</span> <span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,440</span></code> &amp;storing into register 0</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,30</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">ENTER</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,36</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\times</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,20</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RCL</span> <span class="pre">0</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,450</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">\div</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,10</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">+</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,40</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">R/S</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,31</span></code> &amp;</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">093</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">,43,33,093</span></code> &amp;</div>
+</div>
+</section>
+<section id="example-3">
+<span id="id21"></span><h4>Example<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h4>
+<p>In the following example we calculate
+<span class="math notranslate nohighlight">\({\rm atan2}(\frac{+1.5}{-1.0})\)</span> using the following steps:
+<code class="docutils literal notranslate"><span class="pre">GTO</span> <span class="pre">Z001</span></code> <code class="docutils literal notranslate"><span class="pre">0.00000</span></code> <code class="docutils literal notranslate"><span class="pre">1.5</span></code> <code class="docutils literal notranslate"><span class="pre">1.5</span></code> <code class="docutils literal notranslate"><span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">1.50000</span></code> <code class="docutils literal notranslate"><span class="pre">-1.0</span></code>
+<code class="docutils literal notranslate"><span class="pre">-1.0</span></code> <code class="docutils literal notranslate"><span class="pre">R/S</span></code> <code class="docutils literal notranslate"><span class="pre">-33.69007</span></code></p>
+</section>
+<section id="comments-2">
+<span id="id22"></span><h4>Comments<a class="headerlink" href="#comments-2" title="Permalink to this headline">¶</a></h4>
+<p>Users have to be careful about a couple of things:</p>
+<ol class="arabic simple">
+<li><p>Angles are calculated in <em>degrees. Confirm calculator setting before
+using this function.</em></p></li>
+<li><p>User is responsible for ensuring that <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are
+<strong>never both zero.</strong></p></li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022, Daniel Boulet.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
