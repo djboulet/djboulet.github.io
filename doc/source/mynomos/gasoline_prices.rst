@@ -34,7 +34,7 @@ Generated nomograph
 
 
 Source code
------------
+""""""""""""""
 
 
 .. literalinclude:: ../../../../mynomos/gasolinepricesUSD_CAD.py
