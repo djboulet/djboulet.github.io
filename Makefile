@@ -4,11 +4,11 @@ gh-pages:
 	git checkout master doc
 	touch .nojekyll
 	git reset HEAD
-	# make -C doc clean
+	make -C doc clean
 	make -C doc html
-	# make -C doc latexpdf
+	make -C doc latexpdf
 	mv -fv doc/build/html/* ./
-	# mv -fv doc/build/latex/djbouletdoc.pdf ./
+	mv -fv doc/build/latex/djbouletdoc.pdf ./
 	rm -rf doc
 	git add .
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
