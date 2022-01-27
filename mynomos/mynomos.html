@@ -339,7 +339,7 @@ two Z scores (one negative, the other positive).</p>
 <p>To calculate the area between two Z scores (<span class="math notranslate nohighlight">\(Z_{upper}\)</span>,
 <span class="math notranslate nohighlight">\(Z_{lower}\)</span>) of a normal distribution one must compute the
 difference between the respective probability density functions
-<span class="math notranslate nohighlight">\(\mathrm{PDF}(Z_{upper})\)</span> and <span class="math notranslate nohighlight">\(\mathrm{PDF}(Z_{lower})\)</span>. <a href="#id1"><span class="problematic" id="id2">:cite:`wikimedia:normal_disribution`</span></a></p>
+<span class="math notranslate nohighlight">\(\mathrm{PDF}(Z_{upper})\)</span> and <span class="math notranslate nohighlight">\(\mathrm{PDF}(Z_{lower})\)</span>. <span id="id1">[<a class="reference internal" href="../bibliography/bibliography.html#id24" title="English: The re-drawn chart comparing the various grading methods in a normal distribution. Includes: Standard deviations, cumulative percentages, percentile equivalents, Z-scores and T-scores. Inspired by Figure 4.3 on Page 74 of Ward, A. W., Murray-Ward, M. (1999). Assessment in the Classroom. Belmont, CA: Wadsworth. ISBN 0534527043. July 2007. URL: https://commons.wikimedia.org/wiki/File:The_Normal_Distribution.svg (visited on 2021-12-31).">wik07</a>]</span></p>
 <img alt="../_images/The_Normal_Distribution.png" src="../_images/The_Normal_Distribution.png" />
 <p>Recall that the functional relationship for a <strong>Type 1</strong> block is:</p>
 <p><span class="math notranslate nohighlight">\(F1(u_1)+F2(u_2)+F3(u_3)=0\)</span></p>
@@ -350,12 +350,12 @@ difference between the respective probability density functions
 <p>Two <strong>Type 8</strong> axes are aligned with <span class="math notranslate nohighlight">\(\mathrm{PDF}(Z_{upper})\)</span> and
 <span class="math notranslate nohighlight">\(\mathrm{PDF}(Z_{lower})\)</span> to align a Z score with its associated PDF.</p>
 </section>
-<section id="id3">
-<h3>Nomograph<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<section id="id2">
+<h3>Nomograph<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/zscore.png" src="../_images/zscore.png" />
 </section>
-<section id="id4">
-<h3>Source code<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<section id="id3">
+<h3>Source code<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    zscore.py</span>
 <span class="linenos">  3</span>
@@ -530,12 +530,12 @@ difference between the respective probability density functions
 <section id="vps-generator-performance">
 <h2>VPS Generator Performance<a class="headerlink" href="#vps-generator-performance" title="Permalink to this headline">¶</a></h2>
 <p>This nomograph estimates power generation based on fuel consumption of a <a class="reference external" href="https://www.vericor.com/wp-content/uploads/2020/02/VPS-Series-Stationary.pdf">Vericor VPS4 Genset</a>.</p>
-<section id="id5">
-<h3>Nomograph<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<section id="id4">
+<h3>Nomograph<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/vps4performance.png" src="../_images/vps4performance.png" />
 </section>
-<section id="id6">
-<h3>Source code<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<section id="id5">
+<h3>Source code<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    vps4performance.py</span>
 <span class="linenos">  3</span>
@@ -952,14 +952,14 @@ difference between the respective probability density functions
 </section>
 <section id="voltage-divider">
 <h2>Voltage Divider<a class="headerlink" href="#voltage-divider" title="Permalink to this headline">¶</a></h2>
-<section id="id7">
-<h3>Theory and background<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<section id="id6">
+<h3>Theory and background<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>In electronics, resistive voltage dividers are used for a variety of purposes.
-The formula for a resistive voltage divider is <a href="#id8"><span class="problematic" id="id9">:cite:`wiki:Voltage_divider`</span></a>:</p>
+The formula for a resistive voltage divider is <span id="id7">[<a class="reference internal" href="../bibliography/bibliography.html#id20" title="Wikipedia. Voltage divider — Wikipedia, the free encyclopedia. \url http://en.wikipedia.org/w/index.php?title=Voltage%20divider&amp;oldid=1047836365, 2021. [Online; accessed 31-December-2021].">Wik21c</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(\frac{V_{out}}{V_{in}} = \frac{R_b}{(R_a + R_b)}\)</span></p>
 <a class="reference internal image-reference" href="../_images/ex_voltage_divider_schematic.png"><img alt="../_images/ex_voltage_divider_schematic.png" src="../_images/ex_voltage_divider_schematic.png" style="width: 200px;" /></a>
 <p>When designing voltage dividers, constraints may demand engineers choose
-resistors from a set of “preferred values” <a href="#id10"><span class="problematic" id="id11">:cite:`wiki:E_series_of_preferred_numbers`</span></a>. These values are
+resistors from a set of “preferred values” <span id="id8">[<a class="reference internal" href="../bibliography/bibliography.html#id21" title="Wikipedia. E series of preferred numbers — Wikipedia, the free encyclopedia. \url http://en.wikipedia.org/w/index.php?title=E%20series%20of%20preferred%20numbers&amp;oldid=1059349411, 2021. [Online; accessed 31-December-2021].">Wik21b</a>]</span>. These values are
 discrete and engineers must select the best combination of resistors
 based on tolerance and the available preferred values.  Similar voltage
 ratios can be obtained with different combinations of resistor values.</p>
@@ -979,12 +979,12 @@ graph.  The vertical line’s nearest approach to the intersection of <span clas
 quickly shown that one combination of values (<span class="math notranslate nohighlight">\(R_a\)</span> = 6.2 and <span class="math notranslate nohighlight">\(R_b\)</span> = 3.6) will
 produce an output voltage very close to the desired value (3.3061V).</p>
 </section>
-<section id="id12">
-<h3>Nomograph<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<section id="id9">
+<h3>Nomograph<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/voltdiv_E24_resistors.png" src="../_images/voltdiv_E24_resistors.png" />
 </section>
-<section id="id13">
-<h3>Source code<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<section id="id10">
+<h3>Source code<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    voltdiv_E24_resistors.py</span>
 <span class="linenos">  3</span>
@@ -1138,12 +1138,12 @@ produce an output voltage very close to the desired value (3.3061V).</p>
 <section id="velocity-factor-calculator">
 <h2>Velocity Factor Calculator<a class="headerlink" href="#velocity-factor-calculator" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(\frac{1}{4}\lambda\)</span> matching stubs can be created with different types of coax cable.  However, the velocify factor of coax cables varies by type and manufacturer.  This nomograph allows an engineer to substitute one type for another of different length and velocity factor.</p>
-<section id="id14">
-<h3>Nomograph<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<section id="id11">
+<h3>Nomograph<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/vf_calculator.png" src="../_images/vf_calculator.png" />
 </section>
-<section id="id15">
-<h3>Source code<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<section id="id12">
+<h3>Source code<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    vf_calculator.py</span>
 <span class="linenos">  3</span>
@@ -1298,13 +1298,13 @@ produce an output voltage very close to the desired value (3.3061V).</p>
 </section>
 <section id="vswr-return-loss-and-cable-attentuation">
 <h3>VSWR, Return Loss and Cable Attentuation<a class="headerlink" href="#vswr-return-loss-and-cable-attentuation" title="Permalink to this headline">¶</a></h3>
-<p>The VSWR is calculated from the forward and reflected power as follows <a href="#id16"><span class="problematic" id="id17">:cite:`enwiki:1061732394`</span></a>:</p>
+<p>The VSWR is calculated from the forward and reflected power as follows <span id="id13">[<a class="reference internal" href="../bibliography/bibliography.html#id17" title="Wikipedia. Standing wave ratio — Wikipedia, the free encyclopedia. 2021. [Online; accessed 6-January-2022]. URL: https://en.wikipedia.org/w/index.php?title=Standing_wave_ratio&amp;oldid=1061732394.">Wik21a</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(VSWR = \frac{1+\sqrt{P_r/P_f}}{1-\sqrt{P_r/P_f}}\)</span>.</p>
-<p><strong>Return loss</strong> (RL) is also an indicator of antenna performance. It is the ratio of forward power to reflected power expressed in decibels (dB) <a href="#id18"><span class="problematic" id="id19">:cite:`electronicnotes_2021`</span></a>:</p>
+<p><strong>Return loss</strong> (RL) is also an indicator of antenna performance. It is the ratio of forward power to reflected power expressed in decibels (dB) <span id="id14">[<a class="reference internal" href="../bibliography/bibliography.html#id19" title="Electronic-Notes. Vswr to return loss conversion table &amp; formulas. 2021. [Online; accessed 6-January-2022]. URL: https://www.electronics-notes.com/articles/antennas-propagation/vswr-return-loss/vswr-return-loss-conversion-table.php.">EN21</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(RL = 10 \log_{10}{P_\mathrm f \over P_\mathrm r}\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(P_f\)</span> and <span class="math notranslate nohighlight">\(P_r\)</span> are respectively forward and reflected power in Watts.  By converting forward and reflected power readings to a decibel value referenced to 1W (0 dBW) the return loss can be expressed as:</p>
 <p><span class="math notranslate nohighlight">\(RL = P_f - P_r\)</span> (dB)</p>
-<p>Return loss and VSWR are related <a href="#id20"><span class="problematic" id="id21">:cite:`electronicnotes_2021`</span></a> by the following formulae:</p>
+<p>Return loss and VSWR are related <span id="id15">[<a class="reference internal" href="../bibliography/bibliography.html#id19" title="Electronic-Notes. Vswr to return loss conversion table &amp; formulas. 2021. [Online; accessed 6-January-2022]. URL: https://www.electronics-notes.com/articles/antennas-propagation/vswr-return-loss/vswr-return-loss-conversion-table.php.">EN21</a>]</span> by the following formulae:</p>
 <p><span class="math notranslate nohighlight">\(RL = -20 \times \log_{10} \frac{VSWR - 1}{VSWR + 1}\)</span></p>
 <p>and</p>
 <p><span class="math notranslate nohighlight">\(VSWR = \frac{10^\frac{RL}{20} + 1}{10^\frac{RL}{20} - 1}\)</span>.</p>
@@ -1313,7 +1313,7 @@ produce an output voltage very close to the desired value (3.3061V).</p>
 <section id="cable-loss-and-impact-on-vswr">
 <h3>Cable loss and impact on VSWR<a class="headerlink" href="#cable-loss-and-impact-on-vswr" title="Permalink to this headline">¶</a></h3>
 <p>VSWR is a useful indicator of power transfer but measured results can be misleading. The transmission line connecting the transmitter to the antenna will introduce some loss therefore the RF power reaching the antenna will be lower than the RF power delivered by the transmitter.  Similarly, the power reflected by the antenna will also have been attenuated by the transmission line before it returns to the power meter. The combined effect of attenuated forward and reflected power will make it appear as though the VSWR is lower than it would be if measured at the antenna. It isn’t practical to install a power meter at the antenna but the true VSWR can be calculated based on measured VSWR and known cable losses.</p>
-<p>Cable attentuation is specified in dB per unit length. Cable attentuation for LMR®-195 is based on the following formula <a href="#id22"><span class="problematic" id="id23">:cite:`timesmicrowave:lmr195`</span></a>:</p>
+<p>Cable attentuation is specified in dB per unit length. Cable attentuation for LMR®-195 is based on the following formula <span id="id16">[<a class="reference internal" href="../bibliography/bibliography.html#id18" title="Times Microwave Systems. Lmr®-195 flexible low loss communications coax - times ... [Online; accessed 6-January-2022]. URL: https://www.timesmicrowave.com/DataSheets/CableProducts/LMR-195.pdf.">Sys</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(Loss = (0.356859) \times \sqrt{f} + (0.000470) \times f\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(Loss\)</span> is the attentuation per 100 feet and <span class="math notranslate nohighlight">\(f\)</span> is the operating frequency in megahertz. Given forward and reflected power readings in dB and cable length, we can easily calculate the true return loss at the antenna:</p>
 <p><span class="math notranslate nohighlight">\(RL_{true} = RL_{measured} - 2 * Loss\)</span>.</p>
@@ -1328,8 +1328,8 @@ produce an output voltage very close to the desired value (3.3061V).</p>
 <h3>Generated nomograph<a class="headerlink" href="#generated-nomograph" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/true_vswr_lmr400.png" src="../_images/true_vswr_lmr400.png" />
 </section>
-<section id="id24">
-<h3>Source code<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<section id="id17">
+<h3>Source code<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    full_vswr.py</span>
 <span class="linenos">  3</span>
@@ -1607,12 +1607,12 @@ produce an output voltage very close to the desired value (3.3061V).</p>
 <section id="return-loss-calculator">
 <h2>Return Loss Calculator<a class="headerlink" href="#return-loss-calculator" title="Permalink to this headline">¶</a></h2>
 <p>The Return Loss Calculator performs the same calculations as the True VSWR calculator but presents the results differently.  The Return Loss Calculator allows for direct conversion of VSWR to Return Loss and vice versa.  Two cable types are alos offered on the right-hand portion of the nomograph.  The frequency is choosen by amateur band.  Missing from this nomograph is the ability to calcuate VSWR from forward and reflected power readings.</p>
-<section id="id25">
-<h3>Nomograph<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<section id="id18">
+<h3>Nomograph<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/return_loss.png" src="../_images/return_loss.png" />
 </section>
-<section id="id26">
-<h3>Source code<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<section id="id19">
+<h3>Source code<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    return_loss.py</span>
 <span class="linenos">  3</span>
@@ -1928,12 +1928,12 @@ produce an output voltage very close to the desired value (3.3061V).</p>
 <section id="simple-annuity">
 <h2>Simple Annuity<a class="headerlink" href="#simple-annuity" title="Permalink to this headline">¶</a></h2>
 <p>The following nomograph is related to the <a class="reference external" href="http://lefakkomies.github.io/pynomo-doc/examples/examples.html#example-amortized-loan-calculator">amortized loan calculator example in the PyNomo documentation</a>.  However, rather than calculate outflow of cash of a loan, the nomograph below calculates inflow of cash of a fixed annuity.</p>
-<section id="id27">
-<h3>Nomograph<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<section id="id20">
+<h3>Nomograph<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/simple_annuity.png" src="../_images/simple_annuity.png" />
 </section>
-<section id="id28">
-<h3>Source code<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<section id="id21">
+<h3>Source code<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    simple_annuity.py</span>
 <span class="linenos">  3</span>
@@ -2106,12 +2106,12 @@ implements the following formula:</p>
 <p>and</p>
 <p><span class="math notranslate nohighlight">\(F_3(u_3) = \frac{USD}{US Gal} \div 3.78541 \frac{L}{US Gal}\)</span></p>
 </section>
-<section id="id29">
-<h3>Generated nomograph<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<section id="id22">
+<h3>Generated nomograph<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/gasolinepricesUSD_CAD.png" src="../_images/gasolinepricesUSD_CAD.png" />
 </section>
-<section id="id30">
-<h3>Source code<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<section id="id23">
+<h3>Source code<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos"> 2</span><span class="sd">    gasolinepricesUSD_CAD.py</span>
 <span class="linenos"> 3</span>
@@ -2208,14 +2208,14 @@ implements the following formula:</p>
 </section>
 <section id="bicycle-cadence">
 <h2>Bicycle Cadence<a class="headerlink" href="#bicycle-cadence" title="Permalink to this headline">¶</a></h2>
-<section id="id31">
-<h3>Theory and background<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<section id="id24">
+<h3>Theory and background<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <p>Choosing the correct gears on a bicycle allows a cyclist to maintain a comfortable cadence.  A higher
-cadence helps reduce muscle fatigue <a href="#id32"><span class="problematic" id="id33">:cite:`trainingpeaks_2021`</span></a> though it does put more stress on heart and
+cadence helps reduce muscle fatigue <span id="id25">[<a class="reference internal" href="../bibliography/bibliography.html#id22" title="What to consider when finding your ideal cycling cadence. Dec 2021. URL: https://www.trainingpeaks.com/blog/what-to-consider-when-finding-your-ideal-cycling-cadence/.">tra21</a>]</span> though it does put more stress on heart and
 lungs.  However a lower cadence for the same power output puts more stress on the rider’s knees,
-hips and back. <a href="#id34"><span class="problematic" id="id35">:cite:`the_body_mechanic_2021`</span></a> Furthermore, cycling cadence will vary widely with beginning cyclists peddling more
+hips and back. <span id="id26">[<a class="reference internal" href="../bibliography/bibliography.html#id23" title="Cycling cadence - what is it and why you should keep a close eye on yours? Mar 2021. URL: https://thebodymechanic.com.au/cycling-cadence-what-is-it-and-why-you-should-keep-a-close-eye-on-yours/.">the21</a>]</span> Furthermore, cycling cadence will vary widely with beginning cyclists peddling more
 slowly (60-85 rpm) and professionals exceeding 100 rpm under certain conditions.
-Generally, a good cadence in cycling is between 80-100 rpm. <a href="#id36"><span class="problematic" id="id37">:cite:`hurley_cycling_2021`</span></a> The
+Generally, a good cadence in cycling is between 80-100 rpm. <span id="id27">[<a class="reference internal" href="../bibliography/bibliography.html#id25" title="Sean Hurley. Cycling Cadence: What Is It, What's Most Efficient, and Cadence Drills To Make You Faster - TrainerRoad Blog. October 2021. URL: https://www.trainerroad.com/blog/whats-the-most-efficient-cycling-cadence-and-how-cadence-drills-can-make-you-faster/ (visited on 2021-12-31).">Hur21</a>]</span> The
 correct gear ratio can help the rider maximize their speed with a comfortable cadence.</p>
 <p>A bicycle’s speed is the product of the wheel diameter (e.g. 700mm),
 the wheel’s rotation rate (in rpm) and <span class="math notranslate nohighlight">\(\pi\)</span>. The wheel’s rotation rate is a function of
@@ -2225,12 +2225,12 @@ easily represented on a <strong>Type 5</strong> block.  This nomograph combines 
 calculate gearing ratio) with a pair of <strong>Type 2</strong> blocks to calculate the rider’s
 speed given their cadence and gear settings.</p>
 </section>
-<section id="id38">
-<h3>Nomograph<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<section id="id28">
+<h3>Nomograph<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/bicycle_cadence.png" src="../_images/bicycle_cadence.png" />
 </section>
-<section id="id39">
-<h3>Source code<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<section id="id29">
+<h3>Source code<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    bicycle_cadence.py</span>
 <span class="linenos">  3</span>
@@ -2401,12 +2401,12 @@ speed given their cadence and gear settings.</p>
 <section id="air-coil-design">
 <h2>Air Coil Design<a class="headerlink" href="#air-coil-design" title="Permalink to this headline">¶</a></h2>
 <p>Air coil design nomographs come in a range of shapes, sizes and methods of use.  In this exmaple, PyNomo is used to reconstruct part of the single-layer air coil calculator nomograph published in <a class="reference external" href="https://worldradiohistory.com/Archive-Electronics-World/60s/1962/Electronics-World-1962-08.pdf">Electronics World (1962)</a>.</p>
-<section id="id40">
-<h3>Nomograph<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<section id="id30">
+<h3>Nomograph<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/air_core_coil.png" src="../_images/air_core_coil.png" />
 </section>
-<section id="id41">
-<h3>Source code<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<section id="id31">
+<h3>Source code<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    air_core_coil.py</span>
 <span class="linenos">  3</span>
@@ -2528,12 +2528,12 @@ speed given their cadence and gear settings.</p>
 <section id="map-romer">
 <h2>Map Romer<a class="headerlink" href="#map-romer" title="Permalink to this headline">¶</a></h2>
 <p>Strictly speaking, this not a nomogrpah.  However, this examples uses PyNomo’s axis drawing functions to create a custom <a class="reference external" href="https://en.wikipedia.org/wiki/Romer">map romer</a> to use on printed maps that don’t have a standard scale (i.e. 1:25000).  The only constraint is that the map’s grid must have the same scale vertically and horizontally. Substitue values for actual and printed grids sizes to produce a useful map romer.</p>
-<section id="id43">
-<h3>Nomograph<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<section id="id33">
+<h3>Nomograph<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
 <img alt="../_images/romer.png" src="../_images/romer.png" />
 </section>
-<section id="id44">
-<h3>Source code<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<section id="id34">
+<h3>Source code<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos">  2</span><span class="sd">    romer.py</span>
 <span class="linenos">  3</span>
