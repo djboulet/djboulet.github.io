@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'djboulet github'
+project = 'djboulet gh-pages'
 copyright = '2022, Daniel Boulet'
 author = 'Daniel Boulet'
 
@@ -28,13 +28,7 @@ author = 'Daniel Boulet'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-	"sphinxcontrib.bibtex",
 ]
-
-bibtex_bibfiles = ["refs.bib"]
-
-todo_include_todos = True
-
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -50,7 +44,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'bizstyle'
+html_theme = 'alabaster'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
