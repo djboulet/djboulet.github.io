@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Velocity Factor Calculator &#8212; Daniel&#39;s github  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Daniel&#39;s github</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nomography.html">Nomography</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Velocity Factor Calculator</a><ul>
+<li><a class="reference internal" href="#nomograph">Nomograph</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/nomography/vfcalculator.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="velocity-factor-calculator">
+<h1>Velocity Factor Calculator<a class="headerlink" href="#velocity-factor-calculator" title="Permalink to this headline">¶</a></h1>
+<p><span class="math notranslate nohighlight">\(\frac{1}{4}\lambda\)</span> matching stubs can be created with different types of coax cable.  However, the velocify factor of coax cables varies by type and manufacturer.  This nomograph allows an engineer to substitute one type for another of different length and velocity factor.</p>
+<section id="nomograph">
+<h2>Nomograph<a class="headerlink" href="#nomograph" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/vf_calculator.png" src="../_images/vf_calculator.png" />
+</section>
+<section id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  2</span><span class="sd">    vf_calculator.py</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="sd">    Stub matching nomogram for 80 to 260 MHz range.</span>
+<span class="linenos">  5</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">  6</span>
+<span class="linenos">  7</span><span class="kn">from</span> <span class="nn">pynomo.nomographer</span> <span class="kn">import</span> <span class="n">Nomographer</span>
+<span class="linenos">  8</span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="linenos">  9</span><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="linenos"> 10</span><span class="n">text</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">LatexEngine</span><span class="p">)</span>
+<span class="linenos"> 11</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<span class="linenos"> 12</span><span class="n">outputfile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.pdf&#39;</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="n">text</span><span class="o">.</span><span class="n">preamble</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\usepackage</span><span class="si">{array}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="linenos"> 15</span>
+<span class="linenos"> 16</span><span class="n">scalingFactor</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos"> 17</span><span class="n">shortest_wavelength</span> <span class="o">=</span> <span class="mf">0.19250</span>
+<span class="linenos"> 18</span><span class="n">longest_wavelength</span> <span class="o">=</span> <span class="mf">0.77001</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="n">stub_length_1</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 21</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="n">shortest_wavelength</span><span class="p">,</span>
+<span class="linenos"> 22</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="n">longest_wavelength</span><span class="p">,</span>
+<span class="linenos"> 23</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">**</span><span class="n">scalingFactor</span><span class="p">,</span>
+<span class="linenos"> 24</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Cable 1&#39;</span><span class="p">,</span>
+<span class="linenos"> 25</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="linenos"> 26</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 27</span>    <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$</span><span class="si">%2.2g</span><span class="s1">$m&#39;</span><span class="p">,</span>
+<span class="linenos"> 28</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 29</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos"> 30</span><span class="p">}</span>
+<span class="linenos"> 31</span><span class="n">vel_factor_1</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 32</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<span class="linenos"> 33</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+<span class="linenos"> 34</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="n">scalingFactor</span><span class="p">,</span>
+<span class="linenos"> 35</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Cable 1 VF (\%)&#39;</span><span class="p">,</span>
+<span class="linenos"> 36</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="linenos"> 37</span>    <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$</span><span class="si">%2.2g</span><span class="s1">$&#39;</span><span class="p">,</span>
+<span class="linenos"> 38</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos"> 39</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 40</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
+<span class="linenos"> 41</span>    <span class="s1">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos"> 42</span>        <span class="p">{</span>
+<span class="linenos"> 43</span>            <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manual arrow&#39;</span><span class="p">,</span>
+<span class="linenos"> 44</span>            <span class="s1">&#39;arrow_length&#39;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+<span class="linenos"> 45</span>            <span class="s1">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos"> 46</span>                <span class="mi">66</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;A&#39;</span><span class="p">,</span>
+<span class="linenos"> 47</span>                <span class="mi">73</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;B&#39;</span><span class="p">,</span>
+<span class="linenos"> 48</span>                <span class="mi">78</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;C&#39;</span><span class="p">,</span>
+<span class="linenos"> 49</span>                <span class="mi">80</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;D&#39;</span><span class="p">,</span>
+<span class="linenos"> 50</span>                <span class="mi">81</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;E&#39;</span><span class="p">,</span>
+<span class="linenos"> 51</span>                <span class="mi">82</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;F&#39;</span><span class="p">,</span>
+<span class="linenos"> 52</span>                <span class="mi">84</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;G&#39;</span><span class="p">,</span>
+<span class="linenos"> 53</span>                <span class="mi">85</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;H&#39;</span><span class="p">,</span>
+<span class="linenos"> 54</span>            <span class="p">},</span>
+<span class="linenos"> 55</span>            <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span>
+<span class="linenos"> 56</span>        <span class="p">}</span>
+<span class="linenos"> 57</span>    <span class="p">]</span>
+<span class="linenos"> 58</span><span class="p">}</span>
+<span class="linenos"> 59</span>
+<span class="linenos"> 60</span><span class="n">stub_length_2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 61</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="n">shortest_wavelength</span><span class="p">,</span>
+<span class="linenos"> 62</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="n">longest_wavelength</span><span class="p">,</span>
+<span class="linenos"> 63</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="n">u</span><span class="o">**</span><span class="n">scalingFactor</span><span class="p">,</span>
+<span class="linenos"> 64</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Cable 2 length&#39;</span><span class="p">,</span>
+<span class="linenos"> 65</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="linenos"> 66</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 67</span>    <span class="s1">&#39;text_format&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;$</span><span class="si">%2.2g</span><span class="s1">$m&#39;</span><span class="p">,</span>
+<span class="linenos"> 68</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 69</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span>
+<span class="linenos"> 70</span>    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos"> 71</span>    <span class="s1">&#39;title_rotate_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 72</span><span class="p">}</span>
+<span class="linenos"> 73</span><span class="n">vel_factor_2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos"> 74</span>    <span class="s1">&#39;u_min&#39;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+<span class="linenos"> 75</span>    <span class="s1">&#39;u_max&#39;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+<span class="linenos"> 76</span>    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="p">(</span><span class="n">u</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="n">scalingFactor</span><span class="p">,</span>
+<span class="linenos"> 77</span>    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;Cable 2 VF (\%)&#39;</span><span class="p">,</span>
+<span class="linenos"> 78</span>    <span class="s1">&#39;tick_levels&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+<span class="linenos"> 79</span>    <span class="s1">&#39;tick_text_levels&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<span class="linenos"> 80</span>    <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;linear smart&#39;</span><span class="p">,</span>
+<span class="linenos"> 81</span>    <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span>
+<span class="linenos"> 82</span>    <span class="s1">&#39;title_rotate_text&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 83</span>    <span class="s1">&#39;title_x_shift&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="linenos"> 84</span>    <span class="s1">&#39;extra_params&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos"> 85</span>        <span class="p">{</span>
+<span class="linenos"> 86</span>            <span class="s1">&#39;scale_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manual arrow&#39;</span><span class="p">,</span>
+<span class="linenos"> 87</span>            <span class="s1">&#39;arrow_length&#39;</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+<span class="linenos"> 88</span>            <span class="s1">&#39;manual_axis_data&#39;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos"> 89</span>                <span class="mi">66</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;A&#39;</span><span class="p">,</span>
+<span class="linenos"> 90</span>                <span class="mi">73</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;B&#39;</span><span class="p">,</span>
+<span class="linenos"> 91</span>                <span class="mi">78</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;C&#39;</span><span class="p">,</span>
+<span class="linenos"> 92</span>                <span class="mi">80</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;D&#39;</span><span class="p">,</span>
+<span class="linenos"> 93</span>                <span class="mi">81</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;E&#39;</span><span class="p">,</span>
+<span class="linenos"> 94</span>                <span class="mi">82</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;F&#39;</span><span class="p">,</span>
+<span class="linenos"> 95</span>                <span class="mi">84</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;G&#39;</span><span class="p">,</span>
+<span class="linenos"> 96</span>                <span class="mi">85</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;H&#39;</span><span class="p">,</span>
+<span class="linenos"> 97</span>            <span class="p">},</span>
+<span class="linenos"> 98</span>            <span class="s1">&#39;tick_side&#39;</span><span class="p">:</span> <span class="s1">&#39;right&#39;</span>
+<span class="linenos"> 99</span>        <span class="p">}</span>
+<span class="linenos">100</span>    <span class="p">]</span>
+<span class="linenos">101</span>
+<span class="linenos">102</span><span class="p">}</span>
+<span class="linenos">103</span>
+<span class="linenos">104</span><span class="n">block_1_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">105</span>    <span class="s1">&#39;block_type&#39;</span><span class="p">:</span> <span class="s1">&#39;type_4&#39;</span><span class="p">,</span>
+<span class="linenos">106</span>    <span class="s1">&#39;f1_params&#39;</span><span class="p">:</span> <span class="n">stub_length_1</span><span class="p">,</span>
+<span class="linenos">107</span>    <span class="s1">&#39;f2_params&#39;</span><span class="p">:</span> <span class="n">vel_factor_1</span><span class="p">,</span>
+<span class="linenos">108</span>    <span class="s1">&#39;f3_params&#39;</span><span class="p">:</span> <span class="n">stub_length_2</span><span class="p">,</span>
+<span class="linenos">109</span>    <span class="s1">&#39;f4_params&#39;</span><span class="p">:</span> <span class="n">vel_factor_2</span><span class="p">,</span>
+<span class="linenos">110</span>    <span class="s1">&#39;isopleth_values&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">]],</span>
+<span class="linenos">111</span>    <span class="s1">&#39;reference_color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="o">.</span><span class="n">cmyk</span><span class="o">.</span><span class="n">Gray</span>
+<span class="linenos">112</span><span class="p">}</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span><span class="n">main_params</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">115</span>    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">outputfile</span><span class="p">,</span>
+<span class="linenos">116</span>    <span class="s1">&#39;paper_height&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<span class="linenos">117</span>    <span class="s1">&#39;paper_width&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+<span class="linenos">118</span>    <span class="s1">&#39;block_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">block_1_params</span><span class="p">],</span>
+<span class="linenos">119</span>    <span class="s1">&#39;transformations&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;scale paper&#39;</span><span class="p">,)],</span>
+<span class="linenos">120</span>    <span class="s1">&#39;title_box_width&#39;</span><span class="p">:</span><span class="mf">7.0</span><span class="p">,</span>
+<span class="linenos">121</span>    <span class="s1">&#39;title_str&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\LARGE 80--260MHz $\frac</span><span class="si">{1}{4}</span><span class="s1">\lambda$ Stub Matching Chart \par $\frac</span><span class="si">{L_1}{VF_1}</span><span class="s1">=\frac</span><span class="si">{L_2}{VF_2}</span><span class="s1">$&#39;</span><span class="p">,</span>
+<span class="linenos">122</span>    <span class="s1">&#39;title_x&#39;</span><span class="p">:</span><span class="mf">15.0</span><span class="p">,</span>
+<span class="linenos">123</span>    <span class="s1">&#39;title_y&#39;</span><span class="p">:</span> <span class="mf">8.0</span><span class="p">,</span>
+<span class="linenos">124</span>    <span class="c1"># &#39;make_grid&#39;: True,</span>
+<span class="linenos">125</span>    <span class="s1">&#39;extra_texts&#39;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">126</span>        <span class="p">{</span>
+<span class="linenos">127</span>            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="linenos">128</span>            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+<span class="linenos">129</span>            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\begin</span><span class="si">{center}</span><span class="s1"> \begin</span><span class="si">{tabular}</span><span class="s1">{| m</span><span class="si">{6cm}</span><span class="s1"> | c | } \hline \bf{Cable Type} &amp; \bf</span><span class="si">{Label}</span><span class="s1"> </span><span class="se">\\</span><span class="s1">                 \hline RG-6/U PE (Belden 8215) \newline RG-8/U PE (Belden 8237) \newline RG-58/U PE (Belden 9201) \newline RG-59A/U PE (Belden 8241) \newline RG-174 PE (Belden 8216) \newline RG-213/U (Belden 8267) &amp; A (66\%)  </span><span class="se">\\</span><span class="s1">                  \hline RG-58A/U Foam (Belden 8219) \newline RG-174 Foam (Belden 7805R) &amp; B (73\%) </span><span class="se">\\</span><span class="s1">            	\hline RG-8/U Foam (Belden 8214) \newline RG-59A/U Foam (Belden 8241F) &amp; C (78\%) </span><span class="se">\\</span><span class="s1">                 \hline LMR-240UF &amp; D (80\%) </span><span class="se">\\</span><span class="s1">                 \hline RG-6/U Foam (Belden 9290) &amp; E  (81\%) </span><span class="se">\\</span><span class="s1">                 \hline RG-8X (Belden 9258) \newline Davis BuryFlex &amp; F (82\%)  </span><span class="se">\\</span><span class="s1">                 \hline RG-8/U (Belden 9913) \newline RG-11/U Foam HDPE (Beldin 9292) \newline LMR-240 &amp; G (84\%) </span><span class="se">\\</span><span class="s1"> \hline LMR-400 \newline LMR-400UF &amp; H (85\%) </span><span class="se">\\</span><span class="s1"> \hline \end</span><span class="si">{tabular}</span><span class="s1"> \end</span><span class="si">{center}</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="linenos">130</span>            <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+<span class="linenos">131</span>        <span class="p">},</span>
+<span class="linenos">132</span>        <span class="p">{</span>
+<span class="linenos">133</span>            <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mf">11.0</span><span class="p">,</span>
+<span class="linenos">134</span>            <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+<span class="linenos">135</span>            <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="sa">r</span><span class="s1">&#39;\noindent This chart will calculate the cable length required to substitute the same wavelength stub with another having a different velocity factor. \newline \newline Example: to substitute a 0.5m section of RG-213 requires a 0.644m section of LMR-400. \newline \newline \copyright Daniel Boulet (2020)&#39;</span><span class="p">,</span>
+<span class="linenos">136</span>            <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">9.0</span><span class="p">,</span>
+<span class="linenos">137</span>        <span class="p">},</span>
+<span class="linenos">138</span>    <span class="p">],</span>
+<span class="linenos">139</span>
+<span class="linenos">140</span>
+<span class="linenos">141</span><span class="p">}</span>
+<span class="linenos">142</span><span class="n">Nomographer</span><span class="p">(</span><span class="n">main_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022, Daniel Boulet.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
