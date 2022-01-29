@@ -55,6 +55,7 @@
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nomography.html">Nomography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 </ul>
 </li>
@@ -124,13 +125,13 @@
 </section>
 <section id="vswr-return-loss-and-cable-attentuation">
 <h2>VSWR, Return Loss and Cable Attentuation<a class="headerlink" href="#vswr-return-loss-and-cable-attentuation" title="Permalink to this headline">¶</a></h2>
-<p>The VSWR is calculated from the forward and reflected power as follows <a href="#id1"><span class="problematic" id="id2">:cite:`enwiki:1061732394`</span></a>:</p>
+<p>The VSWR is calculated from the forward and reflected power as follows <span id="id1">[<a class="reference internal" href="../bibliography.html#id17" title="Wikipedia. Standing wave ratio — Wikipedia, the free encyclopedia. 2021. [Online; accessed 6-January-2022]. URL: https://en.wikipedia.org/w/index.php?title=Standing_wave_ratio&amp;oldid=1061732394.">Wik21a</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(VSWR = \frac{1+\sqrt{P_r/P_f}}{1-\sqrt{P_r/P_f}}\)</span>.</p>
-<p><strong>Return loss</strong> (RL) is also an indicator of antenna performance. It is the ratio of forward power to reflected power expressed in decibels (dB) <a href="#id3"><span class="problematic" id="id4">:cite:`electronicnotes_2021`</span></a>:</p>
+<p><strong>Return loss</strong> (RL) is also an indicator of antenna performance. It is the ratio of forward power to reflected power expressed in decibels (dB) <span id="id2">[<a class="reference internal" href="../bibliography.html#id19" title="Electronic-Notes. Vswr to return loss conversion table &amp; formulas. 2021. [Online; accessed 6-January-2022]. URL: https://www.electronics-notes.com/articles/antennas-propagation/vswr-return-loss/vswr-return-loss-conversion-table.php.">EN21</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(RL = 10 \log_{10}{P_\mathrm f \over P_\mathrm r}\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(P_f\)</span> and <span class="math notranslate nohighlight">\(P_r\)</span> are respectively forward and reflected power in Watts.  By converting forward and reflected power readings to a decibel value referenced to 1W (0 dBW) the return loss can be expressed as:</p>
 <p><span class="math notranslate nohighlight">\(RL = P_f - P_r\)</span> (dB)</p>
-<p>Return loss and VSWR are related <a href="#id5"><span class="problematic" id="id6">:cite:`electronicnotes_2021`</span></a> by the following formulae:</p>
+<p>Return loss and VSWR are related <span id="id3">[<a class="reference internal" href="../bibliography.html#id19" title="Electronic-Notes. Vswr to return loss conversion table &amp; formulas. 2021. [Online; accessed 6-January-2022]. URL: https://www.electronics-notes.com/articles/antennas-propagation/vswr-return-loss/vswr-return-loss-conversion-table.php.">EN21</a>]</span> by the following formulae:</p>
 <p><span class="math notranslate nohighlight">\(RL = -20 \times \log_{10} \frac{VSWR - 1}{VSWR + 1}\)</span></p>
 <p>and</p>
 <p><span class="math notranslate nohighlight">\(VSWR = \frac{10^\frac{RL}{20} + 1}{10^\frac{RL}{20} - 1}\)</span>.</p>
@@ -139,7 +140,7 @@
 <section id="cable-loss-and-impact-on-vswr">
 <h2>Cable loss and impact on VSWR<a class="headerlink" href="#cable-loss-and-impact-on-vswr" title="Permalink to this headline">¶</a></h2>
 <p>VSWR is a useful indicator of power transfer but measured results can be misleading. The transmission line connecting the transmitter to the antenna will introduce some loss therefore the RF power reaching the antenna will be lower than the RF power delivered by the transmitter.  Similarly, the power reflected by the antenna will also have been attenuated by the transmission line before it returns to the power meter. The combined effect of attenuated forward and reflected power will make it appear as though the VSWR is lower than it would be if measured at the antenna. It isn’t practical to install a power meter at the antenna but the true VSWR can be calculated based on measured VSWR and known cable losses.</p>
-<p>Cable attentuation is specified in dB per unit length. Cable attentuation for LMR®-195 is based on the following formula <a href="#id7"><span class="problematic" id="id8">:cite:`timesmicrowave:lmr195`</span></a>:</p>
+<p>Cable attentuation is specified in dB per unit length. Cable attentuation for LMR®-195 is based on the following formula <span id="id4">[<a class="reference internal" href="../bibliography.html#id18" title="Times Microwave Systems. Lmr®-195 flexible low loss communications coax - times ... [Online; accessed 6-January-2022]. URL: https://www.timesmicrowave.com/DataSheets/CableProducts/LMR-195.pdf.">Sys</a>]</span>:</p>
 <p><span class="math notranslate nohighlight">\(Loss = (0.356859) \times \sqrt{f} + (0.000470) \times f\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(Loss\)</span> is the attentuation per 100 feet and <span class="math notranslate nohighlight">\(f\)</span> is the operating frequency in megahertz. Given forward and reflected power readings in dB and cable length, we can easily calculate the true return loss at the antenna:</p>
 <p><span class="math notranslate nohighlight">\(RL_{true} = RL_{measured} - 2 * Loss\)</span>.</p>
