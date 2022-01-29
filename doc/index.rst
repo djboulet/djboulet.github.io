@@ -13,4 +13,5 @@ This is where I put the documentation for my creations.
 
    introduction/introduction.rst
    nomography/nomography.rst
+   bibliography.rst
    
