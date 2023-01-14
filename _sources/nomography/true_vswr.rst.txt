@@ -6,9 +6,9 @@ Introduction
 
 Amateur radio operators frequently design and build their own antennae.  An important performance 
 characteristic of any antenna system is the **Voltage Standing Wave Ratio** (VSWR).  The VSWR is a
- measure of the impedance match between the signal source (transmitter) and the load (antenna). Maximum
-  power transfer from transmitter to antenna occurs when the source's output impedance matches the load's
-   input impedance. A VSWR of 1:1 or simply "1" indicates a perfect match.
+measure of the impedance match between the signal source (transmitter) and the load (antenna). Maximum
+power transfer from transmitter to antenna occurs when the source's output impedance matches the load's
+input impedance. A VSWR of 1:1 or simply "1" indicates a perfect match.
 
 VSWR, Return Loss and Cable Attentuation
 """""""""""""""""""""""""""""""""""""""""""""
