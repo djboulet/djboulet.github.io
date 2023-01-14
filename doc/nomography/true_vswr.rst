@@ -4,7 +4,11 @@ True VSWR Calculator
 Introduction
 """""""""""""""
 
-Amateur radio operators frequently design and build their own antennae.  An important performance characteristic of any antenna system is the **Voltage Standing Wave Ratio** (VSWR).  The VSWR is a measure of the impedance match between the signal source (transmitter) and the load (antenna). Maximum power transfer from transmitter to antenna occurs when the source's output impedance matches the load's input impedance. A VSWR of 1:1 or simply "1" indicates a perfect match.
+Amateur radio operators frequently design and build their own antennae.  An important performance 
+characteristic of any antenna system is the **Voltage Standing Wave Ratio** (VSWR).  The VSWR is a
+ measure of the impedance match between the signal source (transmitter) and the load (antenna). Maximum
+  power transfer from transmitter to antenna occurs when the source's output impedance matches the load's
+   input impedance. A VSWR of 1:1 or simply "1" indicates a perfect match.
 
 VSWR, Return Loss and Cable Attentuation
 """""""""""""""""""""""""""""""""""""""""""""
@@ -13,11 +17,13 @@ The VSWR is calculated from the forward and reflected power as follows :cite:`en
 
 :math:`VSWR = \frac{1+\sqrt{P_r/P_f}}{1-\sqrt{P_r/P_f}}`.
 
-**Return loss** (RL) is also an indicator of antenna performance. It is the ratio of forward power to reflected power expressed in decibels (dB) :cite:`electronicnotes_2021`:
+**Return loss** (RL) is also an indicator of antenna performance. It is the ratio of forward power to
+ reflected power expressed in decibels (dB) :cite:`electronicnotes_2021`:
 
 :math:`RL = 10 \log_{10}{P_\mathrm f \over P_\mathrm r}`
 
-where :math:`P_f` and :math:`P_r` are respectively forward and reflected power in Watts.  By converting forward and reflected power readings to a decibel value referenced to 1W (0 dBW) the return loss can be expressed as:
+where :math:`P_f` and :math:`P_r` are respectively forward and reflected power in Watts.  By converting forward
+ and reflected power readings to a decibel value referenced to 1W (0 dBW) the return loss can be expressed as:
 
 :math:`RL = P_f - P_r` (dB)
 
@@ -30,14 +36,24 @@ and
 :math:`VSWR = \frac{10^\frac{RL}{20} + 1}{10^\frac{RL}{20} - 1}`.
 
 
-A high return loss (>30dB) indicates a high ratio of forward power to reflected power therefore a good impedance match. A return loss approaching 0dB means the reflected power is nearly equal to the forward power indicating a mismatch.
+A high return loss (>30dB) indicates a high ratio of forward power to reflected power therefore 
+a good impedance match. A return loss approaching 0dB means 
+the reflected power is nearly equal to the forward power indicating a mismatch.
 
 Cable loss and impact on VSWR
 """"""""""""""""""""""""""""""""""
 
-VSWR is a useful indicator of power transfer but measured results can be misleading. The transmission line connecting the transmitter to the antenna will introduce some loss therefore the RF power reaching the antenna will be lower than the RF power delivered by the transmitter.  Similarly, the power reflected by the antenna will also have been attenuated by the transmission line before it returns to the power meter. The combined effect of attenuated forward and reflected power will make it appear as though the VSWR is lower than it would be if measured at the antenna. It isn't practical to install a power meter at the antenna but the true VSWR can be calculated based on measured VSWR and known cable losses.
+VSWR is a useful indicator of power transfer but measured results can be misleading.
+The transmission line connecting the transmitter to the antenna will introduce some loss therefore
+the RF power reaching the antenna will be lower than the RF power 
+delivered by the transmitter.  Similarly, the power reflected by the antenna will 
+also have been attenuated by the transmission line before it returns 
+to the power meter. The combined effect of attenuated forward and reflected power 
+will make it appear as though the VSWR is lower than it would be if 
+measured at the antenna. It isn't practical to install a power meter at the antenna but the 
+true VSWR can be calculated based on measured VSWR and known cable losses.
 
-Cable attentuation is specified in dB per unit length. Cable attentuation for LMR®-195 is based on the following formula :cite:`timesmicrowave:lmr195`:
+Cable attenuation is specified in dB per unit length. Cable attentuation for LMR®-195 is based on the following formula :cite:`timesmicrowave:lmr195`:
 
 :math:`Loss = (0.356859) \times \sqrt{f} + (0.000470) \times f`
 

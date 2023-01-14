@@ -1,7 +1,9 @@
 Search Planner
 ^^^^^^^^^^^^^^^^^^^^^
 
-Grid searches are slow and labour intensive.  Search planner will want to allocate scarce resources (searchers and time) appropriately.  Knowing the length of time required to search a parcel of land can help assign resources effeciently.
+Grid searches when conducted by ground search and rescue personnel are slow and labour intensive tasks.
+Search planners will want to allocate scarce resources (searchers and time) appropriately.
+Knowing the length of time required to search a parcel of land can help assign resources effeciently.
 
 Nomograph
 """""""""

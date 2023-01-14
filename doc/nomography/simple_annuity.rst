@@ -1,7 +1,10 @@
 Simple Annuity
 ^^^^^^^^^^^^^^^^^^^^^
 
-The following nomograph is related to the `amortized loan calculator example in the PyNomo documentation <http://lefakkomies.github.io/pynomo-doc/examples/examples.html#example-amortized-loan-calculator>`_.  However, rather than calculate outflow of cash of a loan, the nomograph below calculates inflow of cash of a fixed annuity.
+The following nomograph is related to the `amortized loan calculator example in the PyNomo 
+documentation <http://lefakkomies.github.io/pynomo-doc/examples/examples.html#example-amortized-loan-calculator>`_.  
+However this example calculates income from an annuity rather than the expense of a loan or mortgage.
+
 
 Nomograph
 """""""""
