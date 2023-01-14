@@ -30,8 +30,8 @@ of resistor values for a given application.  For example, given an input
 voltage (9V) and desired output voltage (3.3V), the engineer draws a straight
 line from the :math:`V_{out}` axis, through the :math:`V_{in}` axis to the base of the voltage ratio
 graph.  A perpendicular line is then drawn from the base to the top of the
-graph.  The vertical line’s nearest approach to the intersection of :math:`R_a` and
-:math:`R_b` values represents the best combination of resistor values.  It can be
+graph.  The vertical line’s nearest approach to the intersection of the horizontal :math:`R_a` and curved
+:math:`R_b` lines represents the best combination of resistor values.  It can be
 quickly shown that one combination of values (:math:`R_a` = 6.2 and :math:`R_b` = 3.6) will
 produce an output voltage very close to the desired value (3.3061V).
 

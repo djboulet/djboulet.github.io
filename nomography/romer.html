@@ -114,7 +114,11 @@
       
   <section id="map-romer">
 <h1>Map Romer<a class="headerlink" href="#map-romer" title="Permalink to this headline">¶</a></h1>
-<p>Strictly speaking, this not a nomogrpah.  However, this examples uses PyNomo’s axis drawing functions to create a custom <a class="reference external" href="https://en.wikipedia.org/wiki/Romer">map romer</a> to use on printed maps that don’t have a standard scale (i.e. 1:25000).  The only constraint is that the map’s grid must have the same scale vertically and horizontally. Substitue values for actual and printed grids sizes to produce a useful map romer.</p>
+<p>Strictly speaking, this not a nomograph.  I used PyNomo’s axis drawing functions to create a
+custom <a class="reference external" href="https://en.wikipedia.org/wiki/Romer">map romer</a> to use on printed maps that don’t have
+a standard scale (i.e. 1:25000).  The only constraint is that the map’s
+grid must have the same scale vertically and horizontally.
+Substitute values for actual and printed grids sizes to produce a useful map romer.</p>
 <section id="nomograph">
 <h2>Nomograph<a class="headerlink" href="#nomograph" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/romer.png" src="../_images/romer.png" />
@@ -145,11 +149,11 @@
 <span class="linenos"> 22</span>
 <span class="linenos"> 23</span><span class="c1"># actual grid size in meters</span>
 <span class="linenos"> 24</span><span class="c1"># actual_grid_size = float(os.environ[&#39;ACTUAL_GRID_SIZE&#39;])</span>
-<span class="linenos"> 25</span><span class="n">actual_grid_size</span> <span class="o">=</span> <span class="mf">1000.0</span>
+<span class="linenos"> 25</span><span class="n">actual_grid_size</span> <span class="o">=</span> <span class="mf">10000.0</span>
 <span class="linenos"> 26</span>
 <span class="linenos"> 27</span><span class="c1"># printed grid size in centimeters</span>
 <span class="linenos"> 28</span><span class="c1"># printed_grid_size = float(os.environ[&#39;PRINTED_GRID_SIZE&#39;])</span>
-<span class="linenos"> 29</span><span class="n">printed_grid_size</span> <span class="o">=</span> <span class="mf">21.5</span><span class="o">/</span><span class="mf">2.5</span>
+<span class="linenos"> 29</span><span class="n">printed_grid_size</span> <span class="o">=</span> <span class="mf">13.65</span>
 <span class="linenos"> 30</span>
 <span class="linenos"> 31</span><span class="n">map_scale</span> <span class="o">=</span> <span class="n">actual_grid_size</span> <span class="o">/</span> <span class="p">(</span><span class="n">printed_grid_size</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
 <span class="linenos"> 32</span><span class="n">romer_title</span> <span class="o">=</span> <span class="s2">&quot;Map Romer \par Scale: &quot;</span> <span class="o">+</span> \

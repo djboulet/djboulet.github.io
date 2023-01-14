@@ -1,7 +1,7 @@
 Nomography
 --------------
 
-A small collection of my nomographic creations.
+A collection of my nomographic creations.
 
 .. include:: search_planner.rst
 .. include:: zscore.rst

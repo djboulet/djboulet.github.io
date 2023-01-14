@@ -6,7 +6,7 @@ Theory and background
 
 Choosing the correct gears on a bicycle allows a cyclist to maintain a comfortable cadence.  A higher
 cadence helps reduce muscle fatigue :cite:`trainingpeaks_2021` though it does put more stress on heart and
-lungs.  However a lower cadence for the same power output puts more stress on the rider's knees,
+lungs.  On the other hand a lower cadence for the same power output puts more stress on the rider's knees,
 hips and back. :cite:`the_body_mechanic_2021` Furthermore, cycling cadence will vary widely with beginning cyclists peddling more
 slowly (60-85 rpm) and professionals exceeding 100 rpm under certain conditions.
 Generally, a good cadence in cycling is between 80-100 rpm. :cite:`hurley_cycling_2021` The
