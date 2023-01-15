@@ -77,13 +77,13 @@ Since radio amateurs usually work in terms of power expressed in Watts and VSWR,
 Generated nomograph
 """"""""""""""""""""""""""""""
 
-.. image:: ../../../mynomos/true_vswr_lmr195.png
+.. image:: ../../../mynomos/ghpage_src/true_vswr_lmr195.png
 
 
 Source code
 """""""""""""""""
 
-.. literalinclude:: ../../../mynomos/true_vswr_lmr195.py
+.. literalinclude:: ../../../mynomos/ghpage_src/true_vswr_lmr195.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

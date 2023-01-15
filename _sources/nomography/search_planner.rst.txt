@@ -8,12 +8,12 @@ Knowing the length of time required to search a parcel of land can help assign r
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/search_planner.png
+.. image:: ../../../mynomos/ghpage_src/search_planner.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/search_planner.py
+.. literalinclude:: ../../../mynomos/ghpage_src/search_planner.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

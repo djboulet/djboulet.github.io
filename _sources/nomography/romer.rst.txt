@@ -10,12 +10,12 @@ Substitute values for actual and printed grids sizes to produce a useful map rom
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/romer.png
+.. image:: ../../../mynomos/ghpage_src/romer.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/romer.py
+.. literalinclude:: ../../../mynomos/ghpage_src/romer.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

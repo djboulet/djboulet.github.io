@@ -8,12 +8,12 @@ This nomograph allows an engineer to substitute one type of cable for another of
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/vf_calculator.png
+.. image:: ../../../mynomos/ghpage_src/vf_calculator.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/vf_calculator.py
+.. literalinclude:: ../../../mynomos/ghpage_src/vf_calculator.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

@@ -8,12 +8,12 @@ published in `Electronics World (1962) <https://worldradiohistory.com/Archive-El
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/air_core_coil.png
+.. image:: ../../../mynomos/ghpage_src/air_core_coil.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/air_core_coil.py
+.. literalinclude:: ../../../mynomos/ghpage_src/air_core_coil.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

@@ -38,12 +38,12 @@ produce an output voltage very close to the desired value (3.3061V).
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/voltdiv_E24_resistors.png
+.. image:: ../../../mynomos/ghpage_src/voltdiv_E24_resistors.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/voltdiv_E24_resistors.py
+.. literalinclude:: ../../../mynomos/ghpage_src/voltdiv_E24_resistors.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-
