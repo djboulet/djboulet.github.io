@@ -9,12 +9,12 @@ However this example calculates income from an annuity rather than the expense o
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/simple_annuity.png
+.. image:: ../../../mynomos/ghpage_src/simple_annuity.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/simple_annuity.py
+.. literalinclude:: ../../../mynomos/ghpage_src/simple_annuity.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

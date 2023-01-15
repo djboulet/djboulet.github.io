@@ -36,12 +36,12 @@ Two **Type 8** axes are aligned with :math:`\mathrm{PDF}(Z_{upper})` and
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/zscore.png
+.. image:: ../../../mynomos/ghpage_src/zscore.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/zscore.py
+.. literalinclude:: ../../../mynomos/ghpage_src/zscore.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

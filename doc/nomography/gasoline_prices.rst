@@ -29,7 +29,7 @@ Generated nomograph
 """"""""""""""""""""""
 
 
-.. image:: ../../../mynomos/gasolinepricesUSD_CAD.png
+.. image:: ../../../mynomos/ghpage_src/gasolinepricesUSD_CAD.png
 
 
 
@@ -37,7 +37,7 @@ Source code
 """""""""""""""
 
 
-.. literalinclude:: ../../../mynomos/gasolinepricesUSD_CAD.py
+.. literalinclude:: ../../../mynomos/ghpage_src/gasolinepricesUSD_CAD.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

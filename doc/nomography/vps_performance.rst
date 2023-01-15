@@ -6,12 +6,12 @@ This nomograph estimates power generation based on fuel consumption of a `Verico
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/vps4performance.png
+.. image:: ../../../mynomos/ghpage_src/vps4performance.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/vps4performance.py
+.. literalinclude:: ../../../mynomos/ghpage_src/vps4performance.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

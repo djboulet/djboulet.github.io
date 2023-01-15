@@ -11,12 +11,12 @@ the ability to calcuate VSWR from forward and reflected power readings.
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/return_loss.png
+.. image:: ../../../mynomos/ghpage_src/return_loss.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/return_loss.py
+.. literalinclude:: ../../../mynomos/ghpage_src/return_loss.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-

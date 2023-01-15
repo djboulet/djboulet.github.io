@@ -24,12 +24,12 @@ speed given their cadence and gear settings.
 Nomograph
 """""""""
 
-.. image:: ../../../mynomos/bicycle_cadence.png
+.. image:: ../../../mynomos/ghpage_src/bicycle_cadence.png
 
 Source code
 """""""""""
 
-.. literalinclude:: ../../../mynomos/bicycle_cadence.py
+.. literalinclude:: ../../../mynomos/ghpage_src/bicycle_cadence.py
     :encoding: latin-1
     :linenos:
     :lines: 1-4, 20-
